@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vivienda multifamiliar en Comas · Jashira Illescas</title>
+  <meta name="description" content="Vivienda multifamiliar en Comas (Taller 4, UPN): una cafetería y siete viviendas en cinco pisos para una familia de tres generaciones. Plantas, elevación, corte, renders y modelo 3D.">
+  <meta name="theme-color" content="#f2f2ef">
+  <meta property="og:title" content="Vivienda multifamiliar en Comas · Jashira Illescas">
+  <meta property="og:description" content="Cinco pisos en un lote de esquina de Comas: una cafetería y siete viviendas.">
+  <meta property="og:image" content="img/og.jpg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght,FLAR,VOLM@300..700,40,0&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,100,0;1,9..144,300..600,100,1&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css?v=10">
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/" } }
+  </script>
+  <script>
+    // Antes del primer pintado: marca que hay JS, permite ver la versión con todas las animaciones
+    // (localStorage animar=1) y, al llegar desde otra página del sitio, le da a la portada (o a la tarjeta
+    // del proyecto de donde vienes) el nombre «foto» para que la imagen viaje en la transición.
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("js");
+      try { if (localStorage.getItem("animar") === "1") h.classList.add("animar"); } catch (e) {}
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition || (!h.classList.contains("animar") && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+        var img = document.querySelector(".cubierta__img img");
+        if (!img) {
+          var act = window.navigation && navigation.activation, desde = act && act.from && act.from.url;
+          var archivo = desde ? new URL(desde).pathname.split("/").pop() : "";
+          if (archivo) img = document.querySelector('.destacada[href="' + archivo + '"] > img, .tarjeta[href="' + archivo + '"] img');
+        }
+        if (!img) return;
+        var r = img.getBoundingClientRect();
+        if (!(r.width && r.bottom > 0 && r.top < innerHeight)) return;
+        img.style.viewTransitionName = "foto";
+        e.viewTransition.finished.finally(function () { img.style.viewTransitionName = ""; });
+      });
+    })();
+  </script>
+  <script type="speculationrules">
+    { "prerender": [{ "where": { "and": [{ "href_matches": "/*" }, { "not": { "selector_matches": "[download], [target=_blank]" } }] }, "eagerness": "moderate" }] }
+  </script>
+</head>
+<body data-proyecto="vivienda">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="isla isla--proyecto vidrio" data-isla data-brillo>
+    <a class="isla__marca" href="./" aria-label="Inicio: Jashira Illescas"><span class="isla__sello" aria-hidden="true">JI</span><span class="isla__nombre">Jashira Illescas</span></a>
+    <span class="isla__sep" aria-hidden="true">/</span>
+    <button class="isla__boton isla__boton--proyecto" type="button" data-abre="proyectos" aria-expanded="false" aria-controls="proyectos"><i aria-hidden="true"></i><span class="isla__largo">Vivienda multifamiliar</span><span class="isla__corto">Vivienda</span><svg class="flecha-abajo" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <span class="isla__sep" aria-hidden="true">/</span>
+    <button class="isla__boton isla__boton--seccion" type="button" data-abre="secciones" aria-expanded="false" aria-controls="secciones"><span data-seccion-actual>Secciones</span><svg class="flecha-abajo" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <span class="isla__avance" aria-hidden="true"></span>
+  </header>
+  <nav class="emergente vidrio" id="secciones" aria-label="Secciones del proyecto">
+    <p class="emergente__titulo">En esta página</p>
+    <ul class="lista-secciones">
+      <li><a href="#concepto"><span>Concepto</span><span>un piso por generación</span></a></li>
+      <li><a href="#renders"><span>Renders</span><span>día, noche e interiores</span></a></li>
+      <li><a href="#planos"><span>Planos</span><span>plantas, elevación y corte</span></a></li>
+      <li><a href="#modelo"><span>Modelo 3D</span><span>tipologías y columnas</span></a></li>
+      <li><a href="#fin"><span>Otros proyectos</span><span>y contacto</span></a></li>
+    </ul>
+  </nav>
+  <nav class="emergente vidrio" id="proyectos" aria-label="Proyectos">
+    <p class="emergente__titulo">Proyectos</p>
+    <ul class="lista-proyectos">
+      <li><a href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)"><img src="img/spare/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Spare Parts, Huancayo</strong><small>Obra construida</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="vivienda-multifamiliar.html" aria-current="page" style="--c-acr: var(--vivienda-acrilico)"><img src="img/vivienda/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Vivienda multifamiliar</strong><small>Taller 4 · Comas</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="centro-cultural-rimac.html" style="--c-acr: var(--rimac-acrilico)"><img src="img/rimac/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural</strong><small>Taller 5 · Rímac</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="centro-cultural-canete.html" style="--c-acr: var(--canete-acrilico)"><img src="img/canete/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural y recreativo</strong><small>Tesis · Cañete</small></span><i aria-hidden="true"></i></a></li>
+    </ul>
+    <div class="emergente__pie">
+      <a href="./">Inicio</a>
+      <a href="./#perfil">Perfil</a>
+      <a href="./#contacto">Contacto</a>
+      <a class="cv" href="descargas/CV_Jashira_Illescas.pdf" download>CV en PDF</a>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <section class="cubierta" aria-labelledby="t-proyecto">
+      <figure class="cubierta__img"><img src="img/vivienda/portada-1639.webp" srcset="img/vivienda/portada-1200.webp 1200w, img/vivienda/portada-1639.webp 1639w" sizes="100vw" width="1639" height="1147" fetchpriority="high" alt="Render diurno de la vivienda multifamiliar en la esquina: cinco pisos con balcones, celosía de ladrillo y una cafetería con terraza en el primer piso" style="object-position: 50% 42%"></figure>
+      <div class="contenedor cubierta__contenido">
+        <div class="cubierta__placa vidrio vidrio--oscuro" data-brillo>
+          <span class="canto" aria-hidden="true"></span>
+          <p class="etiqueta etiqueta--clara">Taller 4 · UPN · Vivienda</p>
+          <h1 class="cubierta__titulo" id="t-proyecto">Vivienda multifamiliar en <em>Comas</em></h1>
+        </div>
+        <a class="cubierta__bajar vidrio vidrio--oscuro" href="#resumen">Ver el proyecto <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 4v12m-5-5 5 5 5-5"/></svg></a>
+      </div>
+    </section>
+
+    <!-- resumen: lema y ficha, fuera de la foto -->
+    <section class="resumen" id="resumen" aria-label="Resumen del proyecto">
+      <div class="contenedor hoja resumen__hoja revelar" data-brillo>
+        <p class="resumen__lema">En Comas las casas crecen piso por piso, casi siempre sin planos. Este edificio plantea ese crecimiento desde el inicio: cinco pisos para una familia de tres generaciones, con una cafetería en el primer piso.</p>
+        <dl class="ficha">
+          <div><dt>Lugar</dt><dd>Comas, Lima · lote en esquina</dd></div>
+          <div><dt>Terreno</dt><dd>300 m² (15 × 20 m)</dd></div>
+          <div><dt>Programa</dt><dd>7 viviendas y una cafetería</dd></div>
+          <div><dt>Área techada</dt><dd>834 m² en 5 pisos y azotea</dd></div>
+          <div><dt>Curso</dt><dd>Taller 4 · UPN</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="seccion" id="concepto" aria-labelledby="t-concepto">
+      <div class="contenedor hoja" data-brillo>
+        <div class="bloque">
+          <div class="revelar">
+            <p class="etiqueta">Concepto</p>
+            <h2 class="titulo" id="t-concepto">Vivienda progresiva, pero planificada</h2>
+            <p class="entradilla" style="margin-top:1.2rem">En Comas es común construir un piso más cada vez que la familia crece, casi siempre sin asesoría técnica.</p>
+            <p class="texto">Aquí cada piso responde a una etapa de la familia, con acceso propio desde la escalera común, y el primer piso incluye un local comercial que genera ingresos.</p>
+            <ul class="lista-simple" style="margin-top:1.4rem">
+              <li><strong>1er piso:</strong> flat de 2 habitaciones, cafetería con terraza y cochera.</li>
+              <li><strong>2do y 3er piso:</strong> planta típica con dos flats de 2 habitaciones (T1 y T2).</li>
+              <li><strong>4to y 5to piso:</strong> dos dúplex de 3 habitaciones con terraza.</li>
+            </ul>
+          </div>
+          <div class="galeria revelar">
+            <figure class="foto g-12"><img src="img/vivienda/contexto-comas-640.webp" width="640" height="427" loading="lazy" alt="Laderas de Comas con viviendas autoconstruidas y una losa deportiva de tierra"><figcaption>Laderas de Comas: casas que crecen piso por piso</figcaption></figure>
+          </div>
+        </div>
+
+        <!-- ubicación: el mapa con el lote marcado y el detalle de la lámina, redibujado -->
+        <div class="ubicacion revelar">
+          <figure class="ubicacion__mapa capa">
+            <div class="mapa-lienzo" style="max-width: 470px">
+              <img src="img/vivienda/mapa-ubicacion-1000.webp" srcset="img/vivienda/mapa-ubicacion-720.webp 720w, img/vivienda/mapa-ubicacion-1000.webp 1000w" sizes="(min-width: 860px) 470px, 90vw" width="1000" height="1160" loading="lazy" alt="Plano de manzanas del sector de Comas con el lote del proyecto marcado">
+              <span class="marca-mapa" style="--x: 30.7%; --y: 64.2%"><i aria-hidden="true"></i><span class="marca-mapa__etq vidrio">Terreno</span></span>
+            </div>
+          </figure>
+          <div class="ubicacion__texto">
+            <h3 class="titulo-3">Un lote de esquina en Comas</h3>
+            <p>El terreno mide 15 × 20 m (300 m²) y da a una avenida principal y a una secundaria. Las casas vecinas tienen de 2 a 5 pisos y fueron creciendo por etapas, como casi todo el barrio.</p>
+            <figure class="lote">
+              <svg viewBox="0 0 450 440" role="img" aria-labelledby="lote-t lote-d" font-family="Commissioner, system-ui, sans-serif">
+                <title id="lote-t">El terreno en su manzana</title>
+                <desc id="lote-d">Lote de esquina de 15 por 20 metros entre una avenida principal y una avenida secundaria, con veredas de 1.2 metros, junto a casas de 2 a 5 pisos.</desc>
+                <rect x="0" y="370" width="450" height="62" fill="#17171a" fill-opacity=".13"/>
+                <rect x="386" y="20" width="64" height="412" fill="#17171a" fill-opacity=".13"/>
+                <rect x="16" y="360" width="370" height="10" fill="#17171a" fill-opacity=".06"/>
+                <rect x="376" y="40" width="10" height="330" fill="#17171a" fill-opacity=".06"/>
+                <g fill="#fff" fill-opacity=".9" stroke="#8b8b93" stroke-width="1">
+                  <rect x="16" y="40" width="60" height="160"/><rect x="76" y="40" width="60" height="160"/><rect x="136" y="40" width="60" height="160"/>
+                  <rect x="196" y="40" width="60" height="160"/><rect x="256" y="40" width="60" height="160"/><rect x="316" y="40" width="60" height="160"/>
+                  <rect x="16" y="200" width="60" height="160"/><rect x="76" y="200" width="60" height="160"/><rect x="136" y="200" width="60" height="160"/><rect x="196" y="200" width="60" height="160"/>
+                </g>
+                <rect x="256" y="200" width="120" height="160" fill="#e38a67" fill-opacity=".72" stroke="#964b2c" stroke-width="2"/>
+                <g font-size="12" fill="#4a4a52" text-anchor="middle">
+                  <text x="46" y="188">4 pisos</text><text x="106" y="188">3 pisos</text><text x="166" y="188">2 pisos</text>
+                  <text x="226" y="188">5 pisos</text><text x="286" y="188">2 pisos</text><text x="346" y="188">3 pisos</text>
+                  <text x="46" y="220">2 pisos</text><text x="106" y="220">4 pisos</text><text x="166" y="220">3 pisos</text><text x="226" y="220">3 pisos</text>
+                </g>
+                <g text-anchor="middle" fill="#17171a">
+                  <text x="316" y="276" font-size="17" font-weight="600">Terreno</text>
+                  <text x="316" y="297" font-size="15">300 m²</text>
+                </g>
+                <g stroke="#964b2c" stroke-width="1.2" fill="none">
+                  <path d="M262 212h108M262 207v10M370 207v10"/><path d="M268 206v148M263 206h10M263 354h10"/>
+                </g>
+                <g font-size="12" fill="#964b2c" font-weight="600">
+                  <text x="316" y="228" text-anchor="middle">15 m</text>
+                  <text x="283" y="282" text-anchor="middle" transform="rotate(-90 283 282)">20 m</text>
+                </g>
+                <g font-size="13" font-weight="600" fill="#4a4a52" letter-spacing=".04em">
+                  <text x="190" y="406" text-anchor="middle">AVENIDA PRINCIPAL</text>
+                  <text x="422" y="200" text-anchor="middle" transform="rotate(90 422 200)">AVENIDA SECUNDARIA</text>
+                </g>
+                <g transform="translate(34 22) rotate(40)" stroke="#4a4a52" stroke-width="1.4" fill="none">
+                  <circle r="12"/><path d="M0-12V12M-12 0H12"/><path d="M0-18l-4 7h8Z" fill="#4a4a52" stroke="none"/>
+                </g>
+                <text x="56" y="12" font-size="11" font-weight="700" fill="#4a4a52">N</text>
+              </svg>
+              <figcaption>Detalle de la lámina: veredas de 1.2 m y el número de pisos de cada casa vecina.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="renders" aria-labelledby="t-renders">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Renders · la misma cámara a dos horas</p>
+          <h2 class="titulo" id="t-renders">De día y de noche</h2>
+          <p class="entradilla">Arrastra la línea para pasar del día a la noche. Adentro, madera clara, tonos cálidos y luz natural.</p>
+        </header>
+        <div class="comparador revelar" data-comparador>
+          <img src="img/vivienda/render-noche-1366.webp" srcset="img/vivienda/render-noche-960.webp 960w, img/vivienda/render-noche-1366.webp 1366w" sizes="(min-width: 1320px) 1240px, 100vw" width="1366" height="768" loading="lazy" alt="La vivienda de noche, con las ventanas iluminadas">
+          <div class="comparador__b"><img src="img/vivienda/render-dia-1366.webp" srcset="img/vivienda/render-dia-960.webp 960w, img/vivienda/render-dia-1366.webp 1366w" sizes="(min-width: 1320px) 1240px, 100vw" width="1366" height="768" loading="lazy" alt="La vivienda de día, desde la misma cámara"></div>
+          <span class="comparador__rotulo comparador__rotulo--a vidrio vidrio--oscuro">Día</span>
+          <span class="comparador__rotulo comparador__rotulo--b vidrio vidrio--oscuro">Noche</span>
+          <div class="comparador__linea" aria-hidden="true"><span class="comparador__tirador vidrio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span></div>
+          <input type="range" min="0" max="100" value="55" aria-label="Deslizar entre la vista de día y la de noche">
+        </div>
+        <div class="galeria revelar" style="margin-top:clamp(10px,1.6vw,20px)">
+          <figure class="foto g-4"><img src="img/vivienda/interior-sala-768.webp" width="768" height="432" loading="lazy" alt="Sala-comedor con piso de madera, sofá en L y luz natural"><figcaption>Sala-comedor</figcaption></figure>
+          <figure class="foto g-4"><img src="img/vivienda/interior-cocina-768.webp" width="768" height="536" loading="lazy" alt="Cocina en L con muebles de madera clara y listones verticales"><figcaption>Cocina</figcaption></figure>
+          <figure class="foto g-4"><img src="img/vivienda/interior-bano-768.webp" width="768" height="432" loading="lazy" alt="Baño con espejo ovalado, mueble flotante y ducha de vidrio"><figcaption>Baño</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="planos" aria-labelledby="t-planos">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Planos</p>
+          <h2 class="titulo" id="t-planos">Plantas, elevación y corte</h2>
+          <p class="entradilla">Las láminas completas, con ejes y cotas. El 3er piso repite la planta típica del 2do.</p>
+        </header>
+        <div class="mesa revelar">
+          <div class="mesa__barra">
+            <div class="segmentado" data-segmentado role="tablist" aria-label="Láminas">
+              <button type="button" role="tab" id="tv1" aria-controls="pv1" aria-selected="true">1er piso</button>
+              <button type="button" role="tab" id="tv2" aria-controls="pv2" aria-selected="false">2do y 3er piso</button>
+              <button type="button" role="tab" id="tv4" aria-controls="pv4" aria-selected="false">4to piso</button>
+              <button type="button" role="tab" id="tv5" aria-controls="pv5" aria-selected="false">5to piso</button>
+              <button type="button" role="tab" id="tv6" aria-controls="pv6" aria-selected="false">Elevación y corte</button>
+            </div>
+          </div>
+          <figure class="lamina" id="pv1" role="tabpanel" aria-labelledby="tv1" style="--w: 913"><img src="img/vivienda/planta-n1-1826.webp" srcset="img/vivienda/planta-n1-913.webp 913w, img/vivienda/planta-n1-1826.webp 1826w" sizes="(min-width: 1320px) 1150px, 94vw" width="1826" height="1574" loading="lazy" alt="Planta del primer piso: cafetería con terraza, flat de 2 habitaciones con patio, hall de escalera y cochera para tres autos">
+            <figcaption><strong>Primer piso · NPT ±0.00.</strong> Cafetería con terraza a la calle, flat de 2 habitaciones con patio, hall de escalera común y cochera.</figcaption></figure>
+          <figure class="lamina" id="pv2" role="tabpanel" aria-labelledby="tv2" style="--w: 914" hidden><img src="img/vivienda/planta-n2-1828.webp" srcset="img/vivienda/planta-n2-914.webp 914w, img/vivienda/planta-n2-1828.webp 1828w" sizes="(min-width: 1320px) 1150px, 94vw" width="1828" height="1572" loading="lazy" alt="Planta típica del segundo y tercer piso: dos flats de 2 habitaciones alrededor del hall de escalera">
+            <figcaption><strong>Planta típica · 2do y 3er piso.</strong> Dos flats de 2 habitaciones (T1 y T2) alrededor del hall.</figcaption></figure>
+          <figure class="lamina" id="pv4" role="tabpanel" aria-labelledby="tv4" style="--w: 905" hidden><img src="img/vivienda/planta-n4-1810.webp" srcset="img/vivienda/planta-n4-905.webp 905w, img/vivienda/planta-n4-1810.webp 1810w" sizes="(min-width: 1320px) 1150px, 94vw" width="1810" height="1558" loading="lazy" alt="Planta del cuarto piso: nivel social de dos dúplex con terraza, sala-comedor, cocina y escalera interna">
+            <figcaption><strong>Cuarto piso.</strong> Nivel social de los dúplex T1 y T2: terraza, sala-comedor, cocina y escalera interna.</figcaption></figure>
+          <figure class="lamina" id="pv5" role="tabpanel" aria-labelledby="tv5" style="--w: 905" hidden><img src="img/vivienda/planta-n5-1810.webp" srcset="img/vivienda/planta-n5-905.webp 905w, img/vivienda/planta-n5-1810.webp 1810w" sizes="(min-width: 1320px) 1150px, 94vw" width="1810" height="1558" loading="lazy" alt="Planta del quinto piso: nivel de dormitorios de los dúplex con tres habitaciones, baños y balcones">
+            <figcaption><strong>Quinto piso.</strong> Dormitorios de los dúplex: tres habitaciones, baños y balcones.</figcaption></figure>
+          <div class="lamina" id="pv6" role="tabpanel" aria-labelledby="tv6" hidden>
+            <div class="laminas-par" style="width:100%">
+              <figure class="lamina" style="--w: 680"><img src="img/vivienda/elevacion-1360.webp" srcset="img/vivienda/elevacion-680.webp 680w, img/vivienda/elevacion-1360.webp 1360w" sizes="(min-width: 1320px) 560px, (min-width: 760px) 45vw, 92vw" width="1360" height="1098" loading="lazy" alt="Elevación frontal con ventanas, balcones y la celosía verde en la fachada">
+                <figcaption><strong>Elevación frontal.</strong> Balcones corridos y celosía con vegetación.</figcaption></figure>
+              <figure class="lamina" style="--w: 680"><img src="img/vivienda/corte-1360.webp" srcset="img/vivienda/corte-680.webp 680w, img/vivienda/corte-1360.webp 1360w" sizes="(min-width: 1320px) 560px, (min-width: 760px) 45vw, 92vw" width="1360" height="1106" loading="lazy" alt="Corte A-A: cinco pisos con la escalera común y los ambientes interiores">
+                <figcaption><strong>Corte A-A.</strong> La escalera común y cómo se apilan las viviendas.</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="modelo" aria-labelledby="t-modelo">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Modelo 3D</p>
+          <h2 class="titulo" id="t-modelo">El edificio en 3D</h2>
+          <p class="entradilla">Modelado con las cotas de las láminas: 148 muros, 107 puertas y ventanas, losas, la escalera común y 24 columnas de confinamiento. En «Tipologías» cada vivienda tiene su color.</p>
+        </header>
+        <div class="visor revelar" id="visor3d" data-tipo="vivienda" data-modelo="data/vivienda.json" data-descripcion="Modelo 3D de la vivienda multifamiliar: cinco pisos y azotea">
+          <div class="visor__lienzo"><div class="visor__cargando">Cargando el modelo…</div></div>
+          <div class="visor__barra vidrio" role="toolbar" aria-label="Controles del modelo">
+            <div class="segmentado" data-segmentado data-visor-modo role="radiogroup" aria-label="Modo de vista">
+              <button type="button" role="radio" aria-checked="true" data-modo="modelo">Modelo</button>
+              <button type="button" role="radio" aria-checked="false" data-modo="tipologias">Tipologías</button>
+            </div>
+            <span class="separador" aria-hidden="true"></span>
+            <button type="button" class="visor__herr" data-abre="visor-niveles" data-foco="no" aria-expanded="false" aria-controls="visor-niveles"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 5h12M4 10h12M4 15h12"/></svg><span class="txt" data-nivel-texto>Pisos</span></button>
+            <button type="button" class="visor__herr" data-planta aria-pressed="false"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="1.5"/><path d="M3 10h8v7M11 3v4"/></svg><span class="txt">Planta</span></button>
+            <button type="button" class="visor__herr" data-reencuadrar aria-label="Volver a la vista inicial"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10a6 6 0 1 0 2-4.5"/><path d="M4 3v3h3"/></svg></button>
+          </div>
+          <div class="flotante vidrio" id="visor-niveles" role="group" aria-label="Piso visible">
+            <h3>Piso visible</h3>
+            <div class="fila-niveles">
+              <button type="button" data-nivel="todos" aria-pressed="true" aria-label="Todos los pisos">Todo</button>
+              <button type="button" data-nivel="N1" aria-pressed="false" aria-label="Piso 1">1</button>
+              <button type="button" data-nivel="N2" aria-pressed="false" aria-label="Piso 2">2</button>
+              <button type="button" data-nivel="N3" aria-pressed="false" aria-label="Piso 3">3</button>
+              <button type="button" data-nivel="N4" aria-pressed="false" aria-label="Piso 4">4</button>
+              <button type="button" data-nivel="N5" aria-pressed="false" aria-label="Piso 5">5</button>
+            </div>
+            <label class="rango">Separar los pisos<input type="range" class="rango-obra" min="0" max="4" step="0.1" value="0" data-separar></label>
+          </div>
+          <div class="visor__info vidrio" hidden aria-live="polite"></div>
+          <p class="visor__pista">Arrastra para girar · haz clic en el modelo y usa la rueda para acercar · en Planta, el corte a 1.20 m muestra muros y columnas</p>
+        </div>
+        <details class="ver-tabla revelar">
+          <summary>Ver el cuadro de áreas por tipología</summary>
+          <div class="tabla-envoltura" style="margin-top:.75rem">
+            <table class="tabla">
+              <thead><tr><th>Tipología</th><th>Pisos</th><th class="n">Área bruta m²</th></tr></thead>
+              <tbody>
+                <tr><td>Comercio (cafetería)</td><td>1</td><td class="n">49.59</td></tr>
+                <tr><td>Flat 2 hab. + comercio</td><td>1</td><td class="n">83.47</td></tr>
+                <tr><td>Flat 2 hab. T1</td><td>2 y 3</td><td class="n">188.06</td></tr>
+                <tr><td>Flat 2 hab. T2</td><td>2 y 3</td><td class="n">147.98</td></tr>
+                <tr><td>Dúplex 3 hab. T1</td><td>4 y 5</td><td class="n">169.64</td></tr>
+                <tr><td>Dúplex 3 hab. T2</td><td>4 y 5</td><td class="n">141.70</td></tr>
+                <tr><td>Circulación común</td><td>1 a 4</td><td class="n">72.60</td></tr>
+              </tbody>
+              <tfoot><tr class="fila-total"><td>Total (incluye terrazas y balcones)</td><td></td><td class="n">853.04</td></tr></tfoot>
+            </table>
+          </div>
+        </details>
+        <p class="nota revelar" style="margin-top:.6rem">Columnas de 25 × 25 cm en los encuentros de muros portantes, continuas del primer al quinto piso y a no más de 5.80 m entre sí. Altura de entrepiso: 2.90 m.</p>
+      </div>
+    </section>
+
+    <!-- salida: otros proyectos, sin bucle -->
+    <nav class="fin" id="fin" aria-labelledby="t-fin">
+      <div class="contenedor hoja" data-brillo>
+        <div class="fin__cab">
+          <div>
+            <p class="etiqueta">Sigue viendo</p>
+            <h2 class="titulo" id="t-fin">Otros proyectos</h2>
+          </div>
+          <div class="fin__acciones">
+            <a class="boton boton--volver" href="./#proyectos"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M16 10H4m5-5-5 5 5 5"/></svg>Todos los proyectos</a>
+            <a class="boton boton--lleno" href="./#contacto">Contacto</a>
+          </div>
+        </div>
+        <ul class="fin__lista">
+          <li><a href="centro-cultural-rimac.html" style="--c-acr: var(--rimac-acrilico)"><img src="img/rimac/portada-1200.webp" width="1200" height="675" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Siguiente · Taller 5</span><strong>Centro cultural en el Rímac</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+          <li><a href="centro-cultural-canete.html" style="--c-acr: var(--canete-acrilico)"><img src="img/canete/portada-1200.webp" width="1200" height="675" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Tesis · Cañete</span><strong>Centro cultural y recreativo</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+          <li><a href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)"><img src="img/spare/portada-1280.webp" width="1280" height="720" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Obra construida · Huancayo</span><strong>Spare Parts</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <span>© 2026 Jashira Illescas Rodriguez · Lima, Perú</span>
+      <span>Taller 4 · Universidad Privada del Norte</span>
+    </div>
+  </footer>
+  <script type="module" src="assets/js/main.js?v=10"></script>
+</body>
+</html>

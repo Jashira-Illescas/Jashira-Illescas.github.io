@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Centro cultural y recreativo en Cañete · Jashira Illescas</title>
+  <meta name="description" content="Tesis (Taller 9–10, UPN): centro cultural y recreativo para la cultura afroperuana en San Vicente de Cañete. Implantación, plantas, cortes, elevaciones, detalle constructivo y renders.">
+  <meta name="theme-color" content="#f2f2ef">
+  <meta property="og:title" content="Centro cultural y recreativo en Cañete · Jashira Illescas">
+  <meta property="og:description" content="Mi tesis: pabellones, parques hundidos y anfiteatros en San Vicente de Cañete.">
+  <meta property="og:image" content="img/og.jpg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght,FLAR,VOLM@300..700,40,0&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,100,0;1,9..144,300..600,100,1&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css?v=10">
+  <script>
+    // Antes del primer pintado: marca que hay JS, permite ver la versión con todas las animaciones
+    // (localStorage animar=1) y, al llegar desde otra página del sitio, le da a la portada (o a la tarjeta
+    // del proyecto de donde vienes) el nombre «foto» para que la imagen viaje en la transición.
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("js");
+      try { if (localStorage.getItem("animar") === "1") h.classList.add("animar"); } catch (e) {}
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition || (!h.classList.contains("animar") && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+        var img = document.querySelector(".cubierta__img img");
+        if (!img) {
+          var act = window.navigation && navigation.activation, desde = act && act.from && act.from.url;
+          var archivo = desde ? new URL(desde).pathname.split("/").pop() : "";
+          if (archivo) img = document.querySelector('.destacada[href="' + archivo + '"] > img, .tarjeta[href="' + archivo + '"] img');
+        }
+        if (!img) return;
+        var r = img.getBoundingClientRect();
+        if (!(r.width && r.bottom > 0 && r.top < innerHeight)) return;
+        img.style.viewTransitionName = "foto";
+        e.viewTransition.finished.finally(function () { img.style.viewTransitionName = ""; });
+      });
+    })();
+  </script>
+  <script type="speculationrules">
+    { "prerender": [{ "where": { "and": [{ "href_matches": "/*" }, { "not": { "selector_matches": "[download], [target=_blank]" } }] }, "eagerness": "moderate" }] }
+  </script>
+</head>
+<body data-proyecto="canete">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="isla isla--proyecto vidrio" data-isla data-brillo>
+    <a class="isla__marca" href="./" aria-label="Inicio: Jashira Illescas"><span class="isla__sello" aria-hidden="true">JI</span><span class="isla__nombre">Jashira Illescas</span></a>
+    <span class="isla__sep" aria-hidden="true">/</span>
+    <button class="isla__boton isla__boton--proyecto" type="button" data-abre="proyectos" aria-expanded="false" aria-controls="proyectos"><i aria-hidden="true"></i><span class="isla__largo">Centro cultural, Cañete</span><span class="isla__corto">Cañete</span><svg class="flecha-abajo" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <span class="isla__sep" aria-hidden="true">/</span>
+    <button class="isla__boton isla__boton--seccion" type="button" data-abre="secciones" aria-expanded="false" aria-controls="secciones"><span data-seccion-actual>Secciones</span><svg class="flecha-abajo" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <span class="isla__avance" aria-hidden="true"></span>
+  </header>
+  <nav class="emergente vidrio" id="secciones" aria-label="Secciones del proyecto">
+    <p class="emergente__titulo">En esta página</p>
+    <ul class="lista-secciones">
+      <li><a href="#concepto"><span>Concepto</span><span>cultura afroperuana</span></a></li>
+      <li><a href="#implantacion"><span>Implantación</span><span>seis pasos</span></a></li>
+      <li><a href="#planos"><span>Planos</span><span>plantas, cortes y detalle</span></a></li>
+      <li><a href="#renders"><span>Renders</span><span>pabellones, salas y plazas</span></a></li>
+      <li><a href="#fin"><span>Otros proyectos</span><span>y contacto</span></a></li>
+    </ul>
+  </nav>
+  <nav class="emergente vidrio" id="proyectos" aria-label="Proyectos">
+    <p class="emergente__titulo">Proyectos</p>
+    <ul class="lista-proyectos">
+      <li><a href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)"><img src="img/spare/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Spare Parts, Huancayo</strong><small>Obra construida</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="vivienda-multifamiliar.html" style="--c-acr: var(--vivienda-acrilico)"><img src="img/vivienda/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Vivienda multifamiliar</strong><small>Taller 4 · Comas</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="centro-cultural-rimac.html" style="--c-acr: var(--rimac-acrilico)"><img src="img/rimac/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural</strong><small>Taller 5 · Rímac</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="centro-cultural-canete.html" aria-current="page" style="--c-acr: var(--canete-acrilico)"><img src="img/canete/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural y recreativo</strong><small>Tesis · Cañete</small></span><i aria-hidden="true"></i></a></li>
+    </ul>
+    <div class="emergente__pie">
+      <a href="./">Inicio</a>
+      <a href="./#perfil">Perfil</a>
+      <a href="./#contacto">Contacto</a>
+      <a class="cv" href="descargas/CV_Jashira_Illescas.pdf" download>CV en PDF</a>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <section class="cubierta" aria-labelledby="t-proyecto">
+      <figure class="cubierta__img"><img src="img/canete/portada-2000.webp" srcset="img/canete/portada-1200.webp 1200w, img/canete/portada-2000.webp 2000w" sizes="100vw" width="2000" height="1125" fetchpriority="high" alt="Render al atardecer: fachada de vidrio con celosías de madera sobre una plaza con graderías y árboles"></figure>
+      <div class="contenedor cubierta__contenido">
+        <div class="cubierta__placa vidrio vidrio--oscuro" data-brillo>
+          <span class="canto" aria-hidden="true"></span>
+          <p class="etiqueta etiqueta--clara">Tesis · Taller 9–10 · UPN</p>
+          <h1 class="cubierta__titulo" id="t-proyecto">Centro cultural y recreativo en <em>Cañete</em></h1>
+        </div>
+        <a class="cubierta__bajar vidrio vidrio--oscuro" href="#resumen">Ver el proyecto <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 4v12m-5-5 5 5 5-5"/></svg></a>
+      </div>
+    </section>
+
+    <!-- resumen: lema y ficha, fuera de la foto -->
+    <section class="resumen" id="resumen" aria-label="Resumen del proyecto">
+      <div class="contenedor hoja resumen__hoja revelar" data-brillo>
+        <p class="resumen__lema">Un lugar para aprender y mostrar la cultura afroperuana de San Vicente de Cañete: pabellones de talleres y exposición unidos por plazas, parques hundidos y anfiteatros.</p>
+        <dl class="ficha">
+          <div><dt>Lugar</dt><dd>San Vicente de Cañete, Lima</dd></div>
+          <div><dt>Frentes</dt><dd>Av. Mariscal Benavides y Av. Chilcal</dd></div>
+          <div><dt>Niveles</dt><dd>2 y parques hundidos</dd></div>
+          <div><dt>Curso</dt><dd>Taller 9–10 · tesis · UPN</dd></div>
+          <div class="ficha__ancha"><dt>Programa</dt><dd>Auditorio, mediateca, talleres, salas de exposición y anfiteatros</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="seccion" id="concepto" aria-labelledby="t-concepto">
+      <div class="contenedor hoja" data-brillo>
+        <div class="bloque">
+          <div class="revelar">
+            <p class="etiqueta">Concepto</p>
+            <h2 class="titulo" id="t-concepto">La cultura afroperuana como punto de partida</h2>
+            <p class="entradilla" style="margin-top:1.2rem">La tesis propone un centro para preservar y difundir la cultura afrodescendiente de San Vicente de Cañete: aprender danza y artes tradicionales, conocer su historia y reunirse.</p>
+            <p class="texto">Los pabellones se giran y se alternan siguiendo el ritmo de esa cultura. Entre ellos quedan plazas, parques hundidos y anfiteatros para las actividades al aire libre.</p>
+          </div>
+          <div class="galeria revelar">
+            <figure class="foto g-12"><img src="img/canete/danza-500.webp" width="500" height="333" loading="lazy" alt="Bailarines afroperuanos en escena con pañuelos rojos y vestidos de colores" style="max-width:500px"><figcaption>Danza afroperuana</figcaption></figure>
+          </div>
+        </div>
+
+        <!-- ubicación: el mapa con el terreno, los accesos y la leyenda de la lámina -->
+        <div class="ubicacion revelar">
+          <figure class="ubicacion__mapa capa">
+            <div class="mapa-lienzo">
+              <img src="img/canete/mapa-ubicacion-1440.webp" srcset="img/canete/mapa-ubicacion-900.webp 900w, img/canete/mapa-ubicacion-1440.webp 1440w" sizes="(min-width: 860px) 640px, 92vw" width="1440" height="1019" loading="lazy" alt="Plano de San Vicente de Cañete con la vía regional, las vías principales y secundarias, los ríos, los accesos desde Lima, Chincha y Lunahuaná y el terreno marcado">
+              <span class="marca-mapa" style="--x: 49.1%; --y: 42.7%"><i aria-hidden="true"></i><span class="marca-mapa__etq vidrio">Terreno</span></span>
+              <span class="rotulo-mapa rotulo-mapa--izq vidrio" style="--x: 1%; --y: 31%">Desde Lima</span>
+              <span class="rotulo-mapa rotulo-mapa--der vidrio" style="--x: 99%; --y: 39%; --y-movil: 58%">Desde Lunahuaná</span>
+              <span class="rotulo-mapa vidrio" style="--x: 42%; --y: 86%">Desde Chincha</span>
+              <span class="norte-mapa vidrio" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 2 5 16l5-3 5 3Z" fill="currentColor"/></svg></span>
+            </div>
+          </figure>
+          <div class="ubicacion__texto">
+            <h3 class="titulo-3">En el corazón de San Vicente de Cañete</h3>
+            <p>El terreno está entre la Av. Mariscal Benavides y la Av. Chilcal. Se llega por la vía regional desde Lima y desde Chincha, y desde Lunahuaná por el este.</p>
+            <ul class="leyenda-mapa">
+              <li><i class="punto" style="background: var(--acento)"></i>Terreno</li>
+              <li><i style="background:#a8779a;height:5px"></i>Vía regional</li>
+              <li><i style="background:#d9a7bf"></i>Vía principal</li>
+              <li><i style="background:#b09a8e"></i>Vía secundaria</li>
+              <li><i style="background:#a9cde0"></i>Ríos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="implantacion" aria-labelledby="t-implantacion">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Implantación</p>
+          <h2 class="titulo" id="t-implantacion">Seis pasos para ubicar el conjunto</h2>
+          <p class="entradilla">Cada paso responde a algo del lugar: el sol, el ruido de las avenidas y el viento. Elige un paso para ver su diagrama.</p>
+        </header>
+        <div class="proceso revelar" data-proceso>
+          <div class="proceso__escena">
+            <img class="activo" data-paso="1" src="img/canete/proceso-1-720.webp" srcset="img/canete/proceso-1-720.webp 720w, img/canete/proceso-1-1123.webp 1123w" sizes="(min-width: 860px) 760px, 92vw" width="1123" height="716" loading="lazy" alt="Diagrama 1: el terreno delimitado junto a las avenidas, con el recorrido del sol">
+            <img data-paso="2" src="img/canete/proceso-2-720.webp" srcset="img/canete/proceso-2-720.webp 720w, img/canete/proceso-2-867.webp 867w" sizes="(min-width: 860px) 760px, 92vw" width="867" height="525" loading="lazy" alt="Diagrama 2: el terreno con retiros ampliados hacia las avenidas">
+            <img data-paso="3" src="img/canete/proceso-3-720.webp" srcset="img/canete/proceso-3-720.webp 720w, img/canete/proceso-3-867.webp 867w" sizes="(min-width: 860px) 760px, 92vw" width="867" height="525" loading="lazy" alt="Diagrama 3: un volumen alargado como barrera acústica frente a la avenida">
+            <img data-paso="4" src="img/canete/proceso-4-720.webp" srcset="img/canete/proceso-4-720.webp 720w, img/canete/proceso-4-1373.webp 1373w" sizes="(min-width: 860px) 760px, 92vw" width="1373" height="791" loading="lazy" alt="Diagrama 4: bloques girados según la dirección del viento">
+            <img data-paso="5" src="img/canete/proceso-5-720.webp" srcset="img/canete/proceso-5-720.webp 720w, img/canete/proceso-5-1207.webp 1207w" sizes="(min-width: 860px) 760px, 92vw" width="1207" height="729" loading="lazy" alt="Diagrama 5: el conjunto con parques hundidos y anfiteatros">
+            <img data-paso="6" src="img/canete/proceso-6-720.webp" srcset="img/canete/proceso-6-720.webp 720w, img/canete/proceso-6-1285.webp 1285w" sizes="(min-width: 860px) 760px, 92vw" width="1285" height="771" loading="lazy" alt="Diagrama 6: el conjunto final con los volúmenes de exposición marcados">
+          </div>
+          <ol class="proceso__pasos">
+            <li><button type="button" data-paso="1" aria-pressed="true"><b>1</b><strong>Terreno y emplazamiento</strong><span>Delimitación del terreno y análisis del sol y los vientos.</span></button></li>
+            <li><button type="button" data-paso="2" aria-pressed="false"><b>2</b><strong>Retiros contra el ruido</strong><span>Retiros más amplios frente a las avenidas Mariscal Benavides y Chilcal.</span></button></li>
+            <li><button type="button" data-paso="3" aria-pressed="false"><b>3</b><strong>Barrera acústica</strong><span>Un volumen alargado protege el conjunto del ruido de la avenida.</span></button></li>
+            <li><button type="button" data-paso="4" aria-pressed="false"><b>4</b><strong>Bloques girados</strong><span>Los volúmenes se giran según la dirección del viento.</span></button></li>
+            <li><button type="button" data-paso="5" aria-pressed="false"><b>5</b><strong>Parques hundidos</strong><span>Parques hundidos y anfiteatros abren visuales y reúnen a la comunidad.</span></button></li>
+            <li><button type="button" data-paso="6" aria-pressed="false"><b>6</b><strong>Volúmenes de exposición</strong><span>Se marcan los volúmenes que cuentan la historia afroperuana.</span></button></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="planos" aria-labelledby="t-planos">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Planos</p>
+          <h2 class="titulo" id="t-planos">Plantas, cortes y detalle</h2>
+          <p class="entradilla">Láminas completas, con ejes, niveles y títulos. El corte constructivo de la sala de exposición lleva su leyenda numerada.</p>
+        </header>
+        <div class="mesa revelar">
+          <div class="mesa__barra">
+            <div class="segmentado" data-segmentado role="tablist" aria-label="Láminas">
+              <button type="button" role="tab" id="tc1" aria-controls="pc1" aria-selected="true">Primer nivel</button>
+              <button type="button" role="tab" id="tc2" aria-controls="pc2" aria-selected="false">Segundo nivel</button>
+              <button type="button" role="tab" id="tc3" aria-controls="pc3" aria-selected="false">Cortes</button>
+              <button type="button" role="tab" id="tc4" aria-controls="pc4" aria-selected="false">Elevaciones</button>
+              <button type="button" role="tab" id="tc5" aria-controls="pc5" aria-selected="false">Detalle constructivo</button>
+            </div>
+          </div>
+          <figure class="lamina" id="pc1" role="tabpanel" aria-labelledby="tc1" style="--w: 1400"><img src="img/canete/planta-primer-nivel-2600.webp" srcset="img/canete/planta-primer-nivel-1400.webp 1400w, img/canete/planta-primer-nivel-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="1494" loading="lazy" alt="Planta del primer nivel: auditorio, hall general, cafetería, mediateca, talleres, anfiteatro y parques">
+            <figcaption><strong>Primer nivel · esc. 1/200.</strong> Auditorio, hall general, cafetería, mediateca, hall y aulas de talleres, anfiteatro y parques.</figcaption></figure>
+          <figure class="lamina" id="pc2" role="tabpanel" aria-labelledby="tc2" style="--w: 1400" hidden><img src="img/canete/planta-segundo-nivel-2600.webp" srcset="img/canete/planta-segundo-nivel-1400.webp 1400w, img/canete/planta-segundo-nivel-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="1818" loading="lazy" alt="Planta del segundo nivel: salas de exposición temporal y permanente, administración y talleres artísticos">
+            <figcaption><strong>Segundo nivel · esc. 1/200.</strong> Control del auditorio, hall y salas de exposición temporal y permanente, administración y talleres artísticos.</figcaption></figure>
+          <div class="lamina" id="pc3" role="tabpanel" aria-labelledby="tc3" hidden>
+            <div class="laminas-apiladas" style="width:100%">
+              <figure class="lamina" style="--w: 1400"><img src="img/canete/corte-aa-2600.webp" srcset="img/canete/corte-aa-1400.webp 1400w, img/canete/corte-aa-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="559" loading="lazy" alt="Corte longitudinal A-A del conjunto con foyer, salas de exposición y hall"><figcaption><strong>Corte longitudinal A-A.</strong> Foyer, salas de exposición y hall de exposición.</figcaption></figure>
+              <figure class="lamina" style="--w: 1400"><img src="img/canete/corte-bb-2600.webp" srcset="img/canete/corte-bb-1400.webp 1400w, img/canete/corte-bb-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="522" loading="lazy" alt="Corte longitudinal B-B por el escenario y los talleres, con el parque hundido"><figcaption><strong>Corte longitudinal B-B.</strong> Escenario, talleres y el parque hundido.</figcaption></figure>
+              <div class="laminas-par">
+                <figure class="lamina" style="--w: 1397"><img src="img/canete/corte-cc-2600.webp" srcset="img/canete/corte-cc-1397.webp 1397w, img/canete/corte-cc-2600.webp 2600w" sizes="(min-width: 1320px) 570px, (min-width: 760px) 45vw, 92vw" width="2600" height="1016" loading="lazy" alt="Corte transversal C-C con talleres y el parque hundido entre pabellones"><figcaption><strong>Corte transversal C-C.</strong> Parque hundido entre pabellones.</figcaption></figure>
+                <figure class="lamina" style="--w: 1400"><img src="img/canete/corte-dd-2600.webp" srcset="img/canete/corte-dd-1400.webp 1400w, img/canete/corte-dd-2600.webp 2600w" sizes="(min-width: 1320px) 570px, (min-width: 760px) 45vw, 92vw" width="2600" height="949" loading="lazy" alt="Corte transversal D-D por el auditorio con graderías y escenario"><figcaption><strong>Corte transversal D-D.</strong> Auditorio con graderías y escenario.</figcaption></figure>
+              </div>
+            </div>
+          </div>
+          <div class="lamina" id="pc4" role="tabpanel" aria-labelledby="tc4" hidden>
+            <div class="laminas-apiladas" style="width:100%">
+              <figure class="lamina" style="--w: 1400"><img src="img/canete/elevacion-frontal-2600.webp" srcset="img/canete/elevacion-frontal-1400.webp 1400w, img/canete/elevacion-frontal-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="436" loading="lazy" alt="Elevación frontal con volúmenes de vidrio y celosías verticales"><figcaption><strong>Elevación frontal.</strong></figcaption></figure>
+              <figure class="lamina" style="--w: 1400"><img src="img/canete/elevacion-posterior-2600.webp" srcset="img/canete/elevacion-posterior-1400.webp 1400w, img/canete/elevacion-posterior-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="436" loading="lazy" alt="Elevación posterior con el auditorio de techo a dos aguas"><figcaption><strong>Elevación posterior.</strong></figcaption></figure>
+              <figure class="lamina" style="--w: 1400"><img src="img/canete/elevacion-lateral-2600.webp" srcset="img/canete/elevacion-lateral-1400.webp 1400w, img/canete/elevacion-lateral-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="518" loading="lazy" alt="Elevación lateral derecha con el pabellón de lamas rojas"><figcaption><strong>Elevación lateral derecha.</strong></figcaption></figure>
+            </div>
+          </div>
+          <div class="lamina" id="pc5" role="tabpanel" aria-labelledby="tc5" hidden>
+            <figure class="lamina" style="--w: 1400; width:100%">
+              <div class="detalle">
+                <img src="img/canete/corte-constructivo-2600.webp" srcset="img/canete/corte-constructivo-1400.webp 1400w, img/canete/corte-constructivo-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="1527" loading="lazy" alt="Corte constructivo de la sala de exposición: cubierta metálica ligera sobre armadura, vigas y columnas de concreto, losa aligerada, cielo raso, falso piso y zapatas">
+                <span class="detalle__n" style="--x:26.97%;--y:1.68%">1</span><span class="detalle__n" style="--x:36.47%;--y:9.49%">2</span><span class="detalle__n" style="--x:42.2%;--y:18.5%">3</span><span class="detalle__n" style="--x:34.54%;--y:30.36%">4</span><span class="detalle__n" style="--x:35.17%;--y:18.5%">5</span><span class="detalle__n" style="--x:20.32%;--y:18.5%">6</span><span class="detalle__n" style="--x:24.4%;--y:47.21%">7</span><span class="detalle__n" style="--x:39.62%;--y:57.52%">8</span><span class="detalle__n" style="--x:38.12%;--y:80.81%">9</span><span class="detalle__n" style="--x:30.99%;--y:90.93%">10</span>
+              </div>
+              <figcaption><strong>Corte constructivo de la sala de exposición.</strong> Los números corresponden a la leyenda.</figcaption>
+            </figure>
+            <ol class="leyenda-detalle" style="margin-top:1.2rem;width:100%">
+              <li><b>1</b>Cubierta de techo metálica ligera</li>
+              <li><b>2</b>Sistema de arriostramiento y soporte de cubierta</li>
+              <li><b>3</b>Viga estructural de concreto armado</li>
+              <li><b>4</b>Columna estructural de concreto armado</li>
+              <li><b>5</b>Columna estructural de albañilería confinada</li>
+              <li><b>6</b>Lama de celosía en cubierta</li>
+              <li><b>7</b>Losa aligerada</li>
+              <li><b>8</b>Cielo raso flotante de drywall</li>
+              <li><b>9</b>Falso piso</li>
+              <li><b>10</b>Zapata de cimentación</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="renders" aria-labelledby="t-renders">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Renders</p>
+          <h2 class="titulo" id="t-renders">Pabellones, salas y plazas</h2>
+          <p class="entradilla">Luz cenital en las salas de exposición. Afuera, plazas y anfiteatros para las actividades de la comunidad.</p>
+        </header>
+        <div class="galeria revelar">
+          <figure class="foto g-8"><img src="img/canete/render-fachada-1600.webp" srcset="img/canete/render-fachada-960.webp 960w, img/canete/render-fachada-1600.webp 1600w" sizes="(min-width: 760px) 66vw, 100vw" width="1600" height="1200" loading="lazy" alt="Pabellón con fachada de lamas rojas y plaza arbolada"><figcaption>Pabellón de lamas rojas</figcaption></figure>
+          <figure class="foto foto--cubrir g-4"><img src="img/canete/render-interior-768.webp" width="768" height="576" loading="lazy" alt="Interior en doble altura con baranda de celosía y piso con patrón geométrico"><figcaption>Doble altura del hall</figcaption></figure>
+          <figure class="foto g-6"><img src="img/canete/render-sala-1536.webp" srcset="img/canete/render-sala-960.webp 960w, img/canete/render-sala-1536.webp 1536w" sizes="(min-width: 760px) 50vw, 100vw" width="1536" height="1071" loading="lazy" alt="Sala de exposición con luz cenital, cuadros y visitantes"><figcaption>Sala de exposición con luz cenital</figcaption></figure>
+          <figure class="foto g-6"><img src="img/canete/render-plaza-1536.webp" srcset="img/canete/render-plaza-960.webp 960w, img/canete/render-plaza-1536.webp 1536w" sizes="(min-width: 760px) 50vw, 100vw" width="1536" height="1152" loading="lazy" alt="Vista del conjunto desde la plaza de ingreso"><figcaption>Plaza de ingreso</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- salida: aquí terminan los proyectos; se ofrece volver o escribir, no se vuelve a empezar -->
+    <nav class="fin" id="fin" aria-labelledby="t-fin">
+      <div class="contenedor hoja" data-brillo>
+        <div class="fin__cab">
+          <div>
+            <p class="etiqueta">Sigue viendo</p>
+            <h2 class="titulo" id="t-fin">Otros proyectos</h2>
+          </div>
+          <div class="fin__acciones">
+            <a class="boton boton--volver" href="./#proyectos"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M16 10H4m5-5-5 5 5 5"/></svg>Todos los proyectos</a>
+            <a class="boton boton--lleno" href="./#contacto">Contacto</a>
+          </div>
+        </div>
+        <ul class="fin__lista">
+          <li><a href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)"><img src="img/spare/portada-1280.webp" width="1280" height="720" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Obra construida · Huancayo</span><strong>Spare Parts</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+          <li><a href="vivienda-multifamiliar.html" style="--c-acr: var(--vivienda-acrilico)"><img src="img/vivienda/portada-1200.webp" width="1200" height="840" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Taller 4 · Comas</span><strong>Vivienda multifamiliar</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+          <li><a href="centro-cultural-rimac.html" style="--c-acr: var(--rimac-acrilico)"><img src="img/rimac/portada-1200.webp" width="1200" height="675" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Taller 5 · Rímac</span><strong>Centro cultural</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <span>© 2026 Jashira Illescas Rodriguez · Lima, Perú</span>
+      <span>Tesis · Taller 9–10 · Universidad Privada del Norte</span>
+    </div>
+  </footer>
+  <script type="module" src="assets/js/main.js?v=10"></script>
+</body>
+</html>

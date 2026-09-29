@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jashira Illescas · Arquitecta</title>
+  <meta name="description" content="Portafolio de Jashira Illescas, arquitecta en Lima: una tienda construida en Huancayo con 2M MICON y tres proyectos de la UPN, con planos, renders, modelos 3D, cronograma y presupuesto.">
+  <meta name="theme-color" content="#f2f2ef">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jashira Illescas · Arquitecta">
+  <meta property="og:description" content="Arquitecta en Lima. Diseño interior, locales comerciales y modelado 3D.">
+  <meta property="og:image" content="img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght,FLAR,VOLM@300..700,40,0&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,100,0;1,9..144,300..600,100,1&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css?v=10">
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/" } }
+  </script>
+  <script>
+    // Antes del primer pintado: marca que hay JS, permite ver la versión con todas las animaciones
+    // (localStorage animar=1) y, al llegar desde otra página del sitio, le da a la portada (o a la tarjeta
+    // del proyecto de donde vienes) el nombre «foto» para que la imagen viaje en la transición.
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("js");
+      try { if (localStorage.getItem("animar") === "1") h.classList.add("animar"); } catch (e) {}
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition || (!h.classList.contains("animar") && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+        var img = document.querySelector(".cubierta__img img");
+        if (!img) {
+          var act = window.navigation && navigation.activation, desde = act && act.from && act.from.url;
+          var archivo = desde ? new URL(desde).pathname.split("/").pop() : "";
+          if (archivo) img = document.querySelector('.destacada[href="' + archivo + '"] > img, .tarjeta[href="' + archivo + '"] img');
+        }
+        if (!img) return;
+        var r = img.getBoundingClientRect();
+        if (!(r.width && r.bottom > 0 && r.top < innerHeight)) return;
+        img.style.viewTransitionName = "foto";
+        e.viewTransition.finished.finally(function () { img.style.viewTransitionName = ""; });
+      });
+    })();
+  </script>
+  <script type="speculationrules">
+    { "prerender": [{ "where": { "and": [{ "href_matches": "/*" }, { "not": { "selector_matches": "[download], [target=_blank]" } }] }, "eagerness": "moderate" }] }
+  </script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="isla isla--inicio vidrio" data-isla data-brillo>
+    <a class="isla__marca" href="./" aria-label="Jashira Illescas, inicio"><span class="isla__sello" aria-hidden="true">JI</span><span class="isla__nombre">Jashira Illescas</span></a>
+    <nav class="isla__enlaces" aria-label="Secciones">
+      <a href="#proyectos" data-espia>Proyectos</a>
+      <a href="#perfil" data-espia>Perfil</a>
+      <a href="#contacto" data-espia>Contacto</a>
+    </nav>
+    <button class="isla__boton isla__boton--menu solo-movil" type="button" data-abre="menu" aria-expanded="false" aria-controls="menu"><span class="icono-menu" aria-hidden="true"></span>Menú</button>
+    <span class="isla__avance" aria-hidden="true"></span>
+  </header>
+  <nav class="emergente vidrio" id="menu" aria-label="Menú">
+    <p class="emergente__titulo">Proyectos</p>
+    <ul class="lista-proyectos">
+      <li><a href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)"><img src="img/spare/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Spare Parts, Huancayo</strong><small>Obra construida · 2M MICON</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="vivienda-multifamiliar.html" style="--c-acr: var(--vivienda-acrilico)"><img src="img/vivienda/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Vivienda multifamiliar</strong><small>Taller 4 · Comas</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="centro-cultural-rimac.html" style="--c-acr: var(--rimac-acrilico)"><img src="img/rimac/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural</strong><small>Taller 5 · Rímac</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="centro-cultural-canete.html" style="--c-acr: var(--canete-acrilico)"><img src="img/canete/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural y recreativo</strong><small>Tesis · Cañete</small></span><i aria-hidden="true"></i></a></li>
+    </ul>
+    <div class="emergente__pie">
+      <a href="#perfil">Perfil</a>
+      <a href="#contacto">Contacto</a>
+      <a class="cv" href="descargas/CV_Jashira_Illescas.pdf" download>CV en PDF</a>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <!-- PORTADA: maqueta de estudio con los cuatro proyectos -->
+    <section class="portada" aria-labelledby="nombre">
+      <div class="portada__lienzo" id="maqueta" data-proyectos="data/proyectos.json?v=10" aria-hidden="true"></div>
+      <div class="portada__etiquetas" id="maqueta-etiquetas"></div>
+      <p class="portada__pista vidrio" id="maqueta-pista"></p>
+      <div class="portada__respaldo">
+        <ul>
+          <li><a href="spare-parts-huancayo.html"><img src="img/spare/mini-480.webp" width="480" height="360" alt="Interior de la tienda Spare Parts en Huancayo"><span>Spare Parts</span></a></li>
+          <li><a href="vivienda-multifamiliar.html"><img src="img/vivienda/mini-480.webp" width="480" height="360" alt="Render de la vivienda multifamiliar en Comas"><span>Vivienda</span></a></li>
+          <li><a href="centro-cultural-rimac.html"><img src="img/rimac/mini-480.webp" width="480" height="360" alt="Render del centro cultural en el Rímac"><span>Rímac</span></a></li>
+          <li><a href="centro-cultural-canete.html"><img src="img/canete/mini-480.webp" width="480" height="360" alt="Render del centro cultural y recreativo en Cañete"><span>Cañete</span></a></li>
+        </ul>
+      </div>
+      <div class="portada__texto contenedor">
+        <p class="etiqueta">Arquitecta · Lima, Perú</p>
+        <h1 class="portada__nombre" id="nombre"><span>Jashira</span> <span>Illescas</span></h1>
+        <p class="portada__rol">Diseño interiores y locales comerciales pensados para construirse. Ya llevé una tienda del plano a la obra en Huancayo y busco un equipo donde seguir haciéndolo.</p>
+        <div class="portada__acciones">
+          <a class="disponible vidrio" href="#contacto"><i aria-hidden="true"></i>Disponible a tiempo completo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="seccion" id="proyectos" aria-labelledby="t-proyectos">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Proyectos</p>
+          <h2 class="titulo" id="t-proyectos">Lo que he hecho hasta ahora</h2>
+          <p class="entradilla">La tienda de Huancayo se construyó con 2M MICON entre 2024 y 2025. Los otros tres son de los talleres de la UPN; el último es mi tesis.</p>
+        </header>
+
+        <a class="destacada revelar" href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)">
+          <img src="img/spare/portada-1280.webp" srcset="img/spare/portada-1280.webp 1280w, img/spare/portada-2200.webp 2200w" sizes="(min-width: 1320px) 1150px, 92vw" width="1280" height="720" loading="lazy" alt="Interior de la tienda Spare Parts: isla central con parachoques y aros, muro verde con el logotipo y luminarias suspendidas">
+          <div class="placa-foto vidrio vidrio--oscuro" data-brillo>
+            <span class="placa-foto__etq">Obra construida · 2M MICON · 2024–2025</span>
+            <h3 class="placa-foto__titulo">Spare Parts, <em>Huancayo</em></h3>
+            <span class="placa-foto__desc"><span>Del prototipo de la cadena a un local que ya existía: levantamiento, planos, mobiliario, renders y apoyo en la obra.</span></span>
+            <span class="placa-foto__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span>
+          </div>
+        </a>
+
+        <div class="rejilla-proyectos">
+          <a class="tarjeta revelar" href="vivienda-multifamiliar.html" style="--c-acr: var(--vivienda-acrilico)">
+            <img src="img/vivienda/portada-1200.webp" width="1200" height="840" loading="lazy" alt="Render de la vivienda multifamiliar en esquina, con celosía de ladrillo y una cafetería en el primer piso">
+            <div class="placa-foto vidrio vidrio--oscuro">
+              <span class="placa-foto__etq">Taller 4 · Comas</span>
+              <h3 class="placa-foto__titulo">Vivienda multifamiliar</h3>
+              <span class="placa-foto__desc"><span>Cinco pisos en un lote de esquina: una cafetería y siete viviendas para tres generaciones.</span></span>
+              <span class="placa-foto__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span>
+            </div>
+          </a>
+          <a class="tarjeta revelar" href="centro-cultural-rimac.html" style="--c-acr: var(--rimac-acrilico)">
+            <img src="img/rimac/portada-1200.webp" width="1200" height="675" loading="lazy" alt="Render frontal del centro cultural en la Zona Monumental del Rímac">
+            <div class="placa-foto vidrio vidrio--oscuro">
+              <span class="placa-foto__etq">Taller 5 · Rímac</span>
+              <h3 class="placa-foto__titulo">Centro cultural</h3>
+              <span class="placa-foto__desc"><span>Cine, talleres, mediateca y salas de exposición en la Zona Monumental.</span></span>
+              <span class="placa-foto__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span>
+            </div>
+          </a>
+          <a class="tarjeta revelar" href="centro-cultural-canete.html" style="--c-acr: var(--canete-acrilico)">
+            <img src="img/canete/portada-1200.webp" width="1200" height="675" loading="lazy" alt="Render al atardecer del centro cultural y recreativo en Cañete">
+            <div class="placa-foto vidrio vidrio--oscuro">
+              <span class="placa-foto__etq">Tesis · Cañete</span>
+              <h3 class="placa-foto__titulo">Centro cultural y recreativo</h3>
+              <span class="placa-foto__desc"><span>Pabellones, parques hundidos y anfiteatros para la cultura afroperuana.</span></span>
+              <span class="placa-foto__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span>
+            </div>
+          </a>
+        </div>
+
+        <div class="logros revelar">
+          <div class="logros__cab">
+            <h3 class="titulo-3">Más proyectos y logros</h3>
+            <p>Otros trabajos y actividades de la carrera.</p>
+          </div>
+          <ul class="logros__lista">
+            <li><strong>Hospital tipo II</strong><span>Participación en Expo-Proyectos UPN</span><time>2024</time></li>
+            <li><strong>Silla de salón</strong><span>Diseño y desarrollo de mobiliario</span><time>2024</time></li>
+            <li><strong>Feria Mueble Mall de Comas</strong><span>Participación con la UPN</span><time>2024</time></li>
+            <li><strong>Donativos navideños</strong><span>Voluntariado independiente</span><time>2021–2023</time></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERFIL -->
+    <section class="seccion" id="perfil" aria-labelledby="t-perfil">
+      <div class="contenedor perfil hoja" data-brillo>
+        <div class="perfil__intro">
+          <figure class="perfil__foto revelar">
+            <img src="img/general/perfil-480.webp" srcset="img/general/perfil-480.webp 480w, img/general/perfil-900.webp 900w" sizes="(min-width: 861px) 300px, (min-width: 561px) 240px, 132px" width="480" height="666" loading="lazy" alt="Retrato de Jashira Illescas sonriendo">
+          </figure>
+          <div class="perfil__cabeza revelar">
+            <p class="etiqueta">Perfil</p>
+            <h2 class="titulo" id="t-perfil">Sobre mí</h2>
+            <p class="perfil__nombre">Jashira Jhoane Illescas Rodriguez · Comas, Lima</p>
+          </div>
+          <p class="entradilla perfil__entrada revelar">Soy egresada de Arquitectura y Diseño de Interiores de la Universidad Privada del Norte (2021–2025). En 2M MICON trabajé en proyectos comerciales en Lima y Huancayo.</p>
+          <p class="texto perfil__mas revelar">Me gusta aprender y probar cosas nuevas en arquitectura y diseño. Soy ordenada, cuido el detalle y cumplo los plazos. Busco un trabajo a tiempo completo en diseño interior, diseño arquitectónico o modelado 3D.</p>
+        </div>
+        <div class="hojas">
+          <div class="revelar">
+            <h3 class="titulo-3">Experiencia</h3>
+            <ul class="lista-linea">
+              <li>
+                <div class="lista-linea__cab"><strong>Arquitecta junior · 2M MICON S.A.C.</strong><span>5 meses</span></div>
+                <p>Proyectos comerciales en Lima y Huancayo: levantamiento en campo, planos de arquitectura e interiores, modelado 3D y renders, diseño de mobiliario, apoyo en la supervisión de obra y coordinación con proveedores. <a class="enlace" href="spare-parts-huancayo.html">Ver la tienda de Huancayo</a></p>
+              </li>
+              <li>
+                <div class="lista-linea__cab"><strong>Practicante de arquitectura · VOV ARQ Studio</strong><span>2 meses · Callao</span></div>
+                <p>Planos técnicos en AutoCAD: dibujo 2D, corrección de planos según observaciones, digitalización y estandarización de láminas.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="revelar">
+            <h3 class="titulo-3">Formación</h3>
+            <ul class="lista-linea">
+              <li>
+                <div class="lista-linea__cab"><strong>Arquitectura y Diseño de Interiores</strong><span>2021–2025</span></div>
+                <p>Universidad Privada del Norte (UPN), egresada</p>
+              </li>
+              <li>
+                <div class="lista-linea__cab"><strong>Cursos en la UPN</strong><span>2022–2024</span></div>
+                <p>AutoCAD y Revit (2022) · Materiales especializados en diseño interior y Habilidades blandas (2023) · Presupuesto de obra y Diseño de muebles (2024)</p>
+              </li>
+            </ul>
+          </div>
+          <div class="revelar">
+            <h3 class="titulo-3">Herramientas</h3>
+            <dl class="niveles">
+              <div><dt>Avanzado</dt><dd><ul class="chips"><li class="chip">AutoCAD</li></ul></dd></div>
+              <div><dt>Intermedio</dt><dd><ul class="chips"><li class="chip">Revit</li><li class="chip">SketchUp</li><li class="chip">3ds Max</li><li class="chip">V-Ray</li><li class="chip">Photoshop</li><li class="chip">Excel</li><li class="chip">MS Project</li><li class="chip">S10 Presupuestos</li></ul></dd></div>
+              <div><dt>También</dt><dd><ul class="chips"><li class="chip">D5 Render</li></ul></dd></div>
+            </dl>
+          </div>
+          <div class="revelar">
+            <h3 class="titulo-3">Idiomas</h3>
+            <dl class="idiomas">
+              <div><dt>Español</dt><dd>nativo</dd></div>
+              <div><dt>Portugués</dt><dd>avanzado</dd></div>
+              <div><dt>Inglés</dt><dd>básico</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="seccion contacto" id="contacto" aria-labelledby="t-contacto">
+      <div class="contenedor hoja revelar" data-brillo>
+        <p class="etiqueta">Contacto</p>
+        <h2 class="titulo" id="t-contacto">Escríbeme</h2>
+        <p class="entradilla">Estoy disponible para trabajar a tiempo completo.</p>
+        <a class="contacto__correo" href="mailto:jashiraillescas@gmail.com">jashiraillescas@gmail.com</a>
+        <div class="acciones">
+          <a class="boton boton--lleno" href="https://wa.me/51901439600" target="_blank" rel="noopener">WhatsApp · +51 901 439 600</a>
+          <a class="boton" href="https://www.linkedin.com/in/jashira-ir06" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="boton" href="descargas/CV_Jashira_Illescas.pdf" download>Descargar CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <span>© 2026 Jashira Illescas Rodriguez · Lima, Perú</span>
+      <span>Tienda de Huancayo con 2M MICON S.A.C. · proyectos académicos de la UPN</span>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/main.js?v=10"></script>
+</body>
+</html>

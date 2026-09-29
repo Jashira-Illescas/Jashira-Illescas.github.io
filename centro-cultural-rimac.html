@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Centro cultural en el Rímac · Jashira Illescas</title>
+  <meta name="description" content="Centro cultural en la Zona Monumental del Rímac (Taller 5, UPN): normativa, estrategia de diseño, renders, plantas, cortes y elevación.">
+  <meta name="theme-color" content="#f2f2ef">
+  <meta property="og:title" content="Centro cultural en el Rímac · Jashira Illescas">
+  <meta property="og:description" content="Obra nueva en la Zona Monumental del Rímac, con las reglas de ProLima.">
+  <meta property="og:image" content="img/og.jpg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght,FLAR,VOLM@300..700,40,0&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,100,0;1,9..144,300..600,100,1&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css?v=10">
+  <script>
+    // Antes del primer pintado: marca que hay JS, permite ver la versión con todas las animaciones
+    // (localStorage animar=1) y, al llegar desde otra página del sitio, le da a la portada (o a la tarjeta
+    // del proyecto de donde vienes) el nombre «foto» para que la imagen viaje en la transición.
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("js");
+      try { if (localStorage.getItem("animar") === "1") h.classList.add("animar"); } catch (e) {}
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition || (!h.classList.contains("animar") && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+        var img = document.querySelector(".cubierta__img img");
+        if (!img) {
+          var act = window.navigation && navigation.activation, desde = act && act.from && act.from.url;
+          var archivo = desde ? new URL(desde).pathname.split("/").pop() : "";
+          if (archivo) img = document.querySelector('.destacada[href="' + archivo + '"] > img, .tarjeta[href="' + archivo + '"] img');
+        }
+        if (!img) return;
+        var r = img.getBoundingClientRect();
+        if (!(r.width && r.bottom > 0 && r.top < innerHeight)) return;
+        img.style.viewTransitionName = "foto";
+        e.viewTransition.finished.finally(function () { img.style.viewTransitionName = ""; });
+      });
+    })();
+  </script>
+  <script type="speculationrules">
+    { "prerender": [{ "where": { "and": [{ "href_matches": "/*" }, { "not": { "selector_matches": "[download], [target=_blank]" } }] }, "eagerness": "moderate" }] }
+  </script>
+</head>
+<body data-proyecto="rimac">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="isla isla--proyecto vidrio" data-isla data-brillo>
+    <a class="isla__marca" href="./" aria-label="Inicio: Jashira Illescas"><span class="isla__sello" aria-hidden="true">JI</span><span class="isla__nombre">Jashira Illescas</span></a>
+    <span class="isla__sep" aria-hidden="true">/</span>
+    <button class="isla__boton isla__boton--proyecto" type="button" data-abre="proyectos" aria-expanded="false" aria-controls="proyectos"><i aria-hidden="true"></i><span class="isla__largo">Centro cultural, Rímac</span><span class="isla__corto">Rímac</span><svg class="flecha-abajo" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <span class="isla__sep" aria-hidden="true">/</span>
+    <button class="isla__boton isla__boton--seccion" type="button" data-abre="secciones" aria-expanded="false" aria-controls="secciones"><span data-seccion-actual>Secciones</span><svg class="flecha-abajo" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <span class="isla__avance" aria-hidden="true"></span>
+  </header>
+  <nav class="emergente vidrio" id="secciones" aria-label="Secciones del proyecto">
+    <p class="emergente__titulo">En esta página</p>
+    <ul class="lista-secciones">
+      <li><a href="#contexto"><span>Contexto y normativa</span><span>Zona Monumental</span></a></li>
+      <li><a href="#estrategia"><span>Estrategia</span><span>cuatro pasos</span></a></li>
+      <li><a href="#renders"><span>Renders</span><span>calle, aire e ingreso</span></a></li>
+      <li><a href="#planos"><span>Planos</span><span>plantas, cortes y elevación</span></a></li>
+      <li><a href="#fin"><span>Otros proyectos</span><span>y contacto</span></a></li>
+    </ul>
+  </nav>
+  <nav class="emergente vidrio" id="proyectos" aria-label="Proyectos">
+    <p class="emergente__titulo">Proyectos</p>
+    <ul class="lista-proyectos">
+      <li><a href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)"><img src="img/spare/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Spare Parts, Huancayo</strong><small>Obra construida</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="vivienda-multifamiliar.html" style="--c-acr: var(--vivienda-acrilico)"><img src="img/vivienda/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Vivienda multifamiliar</strong><small>Taller 4 · Comas</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="centro-cultural-rimac.html" aria-current="page" style="--c-acr: var(--rimac-acrilico)"><img src="img/rimac/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural</strong><small>Taller 5 · Rímac</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="centro-cultural-canete.html" style="--c-acr: var(--canete-acrilico)"><img src="img/canete/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural y recreativo</strong><small>Tesis · Cañete</small></span><i aria-hidden="true"></i></a></li>
+    </ul>
+    <div class="emergente__pie">
+      <a href="./">Inicio</a>
+      <a href="./#perfil">Perfil</a>
+      <a href="./#contacto">Contacto</a>
+      <a class="cv" href="descargas/CV_Jashira_Illescas.pdf" download>CV en PDF</a>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <section class="cubierta" aria-labelledby="t-proyecto">
+      <figure class="cubierta__img"><img src="img/rimac/portada-1920.webp" srcset="img/rimac/portada-1200.webp 1200w, img/rimac/portada-1920.webp 1920w" sizes="100vw" width="1920" height="1080" fetchpriority="high" alt="Render frontal del centro cultural: zócalo continuo con ventanas verticales, dos alas de dos niveles y un volumen central de vidrio" style="object-position: 45% 55%"></figure>
+      <div class="contenedor cubierta__contenido">
+        <div class="cubierta__placa vidrio vidrio--oscuro" data-brillo>
+          <span class="canto" aria-hidden="true"></span>
+          <p class="etiqueta etiqueta--clara">Taller 5 · UPN · Cultura</p>
+          <h1 class="cubierta__titulo" id="t-proyecto">Centro cultural en el <em>Rímac</em></h1>
+        </div>
+        <a class="cubierta__bajar vidrio vidrio--oscuro" href="#resumen">Ver el proyecto <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 4v12m-5-5 5 5 5-5"/></svg></a>
+      </div>
+    </section>
+
+    <!-- resumen: lema y ficha, fuera de la foto -->
+    <section class="resumen" id="resumen" aria-label="Resumen del proyecto">
+      <div class="contenedor hoja resumen__hoja revelar" data-brillo>
+        <p class="resumen__lema">Obra nueva en la Zona Monumental del Rímac. Las reglas de ProLima y del Ministerio de Cultura definieron el ritmo de la fachada, la altura y los materiales.</p>
+        <dl class="ficha">
+          <div><dt>Lugar</dt><dd>Zona Monumental del Rímac, Lima</dd></div>
+          <div><dt>Normativa</dt><dd>ProLima y Ministerio de Cultura</dd></div>
+          <div><dt>Niveles</dt><dd>Sótano y 3 niveles</dd></div>
+          <div><dt>Curso</dt><dd>Taller 5 · UPN</dd></div>
+          <div class="ficha__ancha"><dt>Programa</dt><dd>Cine, talleres, salas de exposición, mediateca, SUM y estacionamiento</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="seccion" id="contexto" aria-labelledby="t-contexto">
+      <div class="contenedor hoja" data-brillo>
+        <div class="bloque">
+          <div class="revelar">
+            <p class="etiqueta">Contexto y normativa</p>
+            <h2 class="titulo" id="t-contexto">Diseñar en la Zona Monumental</h2>
+            <p class="entradilla" style="margin-top:1.2rem">En obra nueva la norma no permite imitar estilos antiguos, pero exige que el edificio se integre con lo que ya existe.</p>
+            <p class="texto">El proyecto parte de cinco reglas de la zona: el ritmo de los vanos, su proporción vertical, el orden de zócalo, cuerpo y remate, la fachada sin retiro y una paleta de colores acorde.</p>
+          </div>
+          <div class="galeria revelar">
+            <figure class="foto g-12"><img src="img/rimac/contexto-rimac-960.webp" width="960" height="540" loading="lazy" alt="Alameda del Rímac con faroles, bancas y casonas de colores"><figcaption>Alameda en la Zona Monumental del Rímac</figcaption></figure>
+          </div>
+        </div>
+
+        <!-- ubicación: el mapa con el área de estudio marcada como en la lámina -->
+        <div class="ubicacion revelar">
+          <figure class="ubicacion__mapa capa">
+            <div class="mapa-lienzo">
+              <img src="img/rimac/mapa-monumental-1400.webp" srcset="img/rimac/mapa-monumental-780.webp 780w, img/rimac/mapa-monumental-1400.webp 1400w" sizes="(min-width: 860px) 640px, 92vw" width="1400" height="1092" loading="lazy" alt="Plano del Rímac con las manzanas en tonos rosados, el río Rímac y el área de estudio marcada con un círculo">
+              <span class="zona-mapa" style="--x: 46.1%; --y: 25.2%; --r: 10.3%"><span class="marca-mapa__etq vidrio">Área de estudio</span></span>
+            </div>
+          </figure>
+          <div class="ubicacion__texto">
+            <h3 class="titulo-3">En la Zona Monumental del Rímac</h3>
+            <p>El círculo marca el área de estudio, cerca del río. Todo este sector es patrimonio protegido: ahí rigen las reglas de ProLima y del Ministerio de Cultura que ordenaron el proyecto.</p>
+            <ul class="leyenda-mapa">
+              <li><i class="circulo" style="color: var(--acento)"></i>Área de estudio</li>
+              <li><i style="background:#a9cfe0"></i>Río Rímac</li>
+              <li><i style="background:#f1c6b4;height:10px"></i>Manzanas del distrito</li>
+            </ul>
+          </div>
+        </div>
+        <div class="normas revelar" style="margin-top:clamp(2rem,4vw,3rem)">
+          <div class="norma"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M11 35V17a9 9 0 0 1 18 0v18Z"/><path d="M20 8v27M11 21h18M6 35h28"/></svg><strong>Ritmo de vanos</strong></div>
+          <div class="norma"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="13" y="4" width="14" height="31"/><path d="M17 9h2M21 9h2M17 14h2M21 14h2M17 19h2M21 19h2M17 24h2M21 24h2M8 35h24"/></svg><strong>Proporción vertical</strong></div>
+          <div class="norma"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 14 20 5l15 9Z"/><path d="M8 14v3h24v-3M11 17v12M17 17v12M23 17v12M29 17v12M7 29h26v3H7zM5 32h30v3H5z"/></svg><strong>Zócalo, cuerpo y remate</strong></div>
+          <div class="norma"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 33V17l12-9 12 9v16Z"/><path d="M16 33v-8h8v8M4 33h32"/><path d="M4 36h32" stroke-dasharray="2 2"/></svg><strong>Sin retiro</strong></div>
+          <div class="norma"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 5C10 5 4 12 4 20c0 8 7 15 15 15 3 0 4-2 3-4s0-4 3-4h4c4 0 7-3 7-7 0-9-7-15-16-15Z"/><circle cx="12" cy="17" r="2"/><circle cx="18" cy="11" r="2"/><circle cx="26" cy="12" r="2"/><circle cx="13" cy="25" r="2"/></svg><strong>Paleta de colores</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="estrategia" aria-labelledby="t-estrategia">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Estrategia</p>
+          <h2 class="titulo" id="t-estrategia">Cuatro decisiones, en orden</h2>
+          <p class="entradilla">Primero la altura de la calle, luego el frente, la continuidad de la fachada y, al final, los vacíos. Elige un paso para ver su diagrama.</p>
+        </header>
+        <div class="proceso revelar" data-proceso>
+          <div class="proceso__escena">
+            <img class="activo" data-paso="1" src="img/rimac/estrategia-1-720.webp" srcset="img/rimac/estrategia-1-720.webp 720w, img/rimac/estrategia-1-904.webp 904w" sizes="(min-width: 860px) 760px, 92vw" width="904" height="593" loading="lazy" alt="Diagrama 1: el terreno entre dos viviendas vecinas y el perfil urbano de 4 m">
+            <img data-paso="2" src="img/rimac/estrategia-2-720.webp" srcset="img/rimac/estrategia-2-720.webp 720w, img/rimac/estrategia-2-904.webp 904w" sizes="(min-width: 860px) 760px, 92vw" width="904" height="593" loading="lazy" alt="Diagrama 2: el frente del terreno hacia la calle">
+            <img data-paso="3" src="img/rimac/estrategia-3-720.webp" srcset="img/rimac/estrategia-3-720.webp 720w, img/rimac/estrategia-3-1008.webp 1008w" sizes="(min-width: 860px) 760px, 92vw" width="1008" height="732" loading="lazy" alt="Diagrama 3: un volumen continuo alineado a la calle">
+            <img data-paso="4" src="img/rimac/estrategia-4-720.webp" srcset="img/rimac/estrategia-4-720.webp 720w, img/rimac/estrategia-4-891.webp 891w" sizes="(min-width: 860px) 760px, 92vw" width="891" height="595" loading="lazy" alt="Diagrama 4: volúmenes con vacíos interiores, en naranja, que suman el 40 % del terreno">
+          </div>
+          <ol class="proceso__pasos">
+            <li><button type="button" data-paso="1" aria-pressed="true"><b>1</b><strong>Perfil urbano de 4 m</strong><span>El terreno está entre casas vecinas; la altura de partida es la de su perfil.</span></button></li>
+            <li><button type="button" data-paso="2" aria-pressed="false"><b>2</b><strong>Frente a la calle</strong><span>La fachada se alinea al frente, sin retiro, como el resto de la zona.</span></button></li>
+            <li><button type="button" data-paso="3" aria-pressed="false"><b>3</b><strong>Fachada continua</strong><span>El volumen sigue la calle y respeta el perfil urbano.</span></button></li>
+            <li><button type="button" data-paso="4" aria-pressed="false"><b>4</b><strong>Vacíos del 40 %</strong><span>Patios y dobles alturas cumplen el área libre de la norma y dan luz a los talleres y al auditorio.</span></button></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="renders" aria-labelledby="t-renders">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Renders</p>
+          <h2 class="titulo" id="t-renders">Hacia la calle y hacia adentro</h2>
+          <p class="entradilla">Hacia la calle, ventanas verticales con el ritmo de las casonas vecinas. Hacia adentro, patios y dobles alturas que iluminan los talleres y el auditorio.</p>
+        </header>
+        <div class="galeria revelar">
+          <figure class="foto g-12"><img src="img/rimac/render-calle-1600.webp" srcset="img/rimac/render-calle-960.webp 960w, img/rimac/render-calle-1600.webp 1600w" sizes="(min-width: 1320px) 1240px, 100vw" width="1600" height="900" loading="lazy" alt="Perspectiva desde la calle: alas con ventanas verticales, volumen de vidrio y veredas con árboles"><figcaption>Perspectiva desde la calle</figcaption></figure>
+          <figure class="foto g-6"><img src="img/rimac/render-aereo-1179.webp" srcset="img/rimac/render-aereo-960.webp 960w, img/rimac/render-aereo-1179.webp 1179w" sizes="(min-width: 760px) 50vw, 100vw" width="1179" height="720" loading="lazy" alt="Vista aérea del conjunto con el auditorio de cubierta curva al fondo"><figcaption>Vista aérea, con el auditorio de cubierta curva</figcaption></figure>
+          <figure class="foto g-6"><img src="img/rimac/render-ingreso-960.webp" width="960" height="540" loading="lazy" alt="Ingreso vehicular al sótano en el zócalo de la fachada"><figcaption>Ingreso vehicular al sótano</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="planos" aria-labelledby="t-planos">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Planos</p>
+          <h2 class="titulo" id="t-planos">Plantas, cortes y elevación</h2>
+          <p class="entradilla">Láminas completas, con ejes y niveles. En las plantas, el color separa las zonas del programa.</p>
+        </header>
+        <div class="mesa revelar">
+          <div class="mesa__barra">
+            <div class="segmentado" data-segmentado role="tablist" aria-label="Láminas">
+              <button type="button" role="tab" id="tr1" aria-controls="pr1" aria-selected="false">Sótano</button>
+              <button type="button" role="tab" id="tr2" aria-controls="pr2" aria-selected="true">Primer nivel</button>
+              <button type="button" role="tab" id="tr3" aria-controls="pr3" aria-selected="false">Segundo nivel</button>
+              <button type="button" role="tab" id="tr4" aria-controls="pr4" aria-selected="false">Cortes</button>
+              <button type="button" role="tab" id="tr5" aria-controls="pr5" aria-selected="false">Elevación</button>
+            </div>
+          </div>
+          <figure class="lamina" id="pr1" role="tabpanel" aria-labelledby="tr1" style="--w: 707" hidden><img src="img/rimac/planta-sotano-1414.webp" srcset="img/rimac/planta-sotano-707.webp 707w, img/rimac/planta-sotano-1414.webp 1414w" sizes="(min-width: 1320px) 1130px, 94vw" width="1414" height="1160" loading="lazy" alt="Planta de sótano: estacionamiento con rampa, circulación vehicular y servicios">
+            <figcaption><strong>Sótano.</strong> Estacionamiento con rampa, depósitos y cuarto de tableros.</figcaption></figure>
+          <figure class="lamina" id="pr2" role="tabpanel" aria-labelledby="tr2" style="--w: 906"><img src="img/rimac/planta-primer-nivel-1812.webp" srcset="img/rimac/planta-primer-nivel-906.webp 906w, img/rimac/planta-primer-nivel-1812.webp 1812w" sizes="(min-width: 1320px) 1150px, 94vw" width="1812" height="1494" loading="lazy" alt="Planta del primer nivel: sala de cine, talleres de música y canto, salas de exposición, SUM, boletería y patios">
+            <figcaption><strong>Primer nivel.</strong> Sala de cine, talleres de música y canto, salas de exposición, SUM y patios.</figcaption></figure>
+          <figure class="lamina" id="pr3" role="tabpanel" aria-labelledby="tr3" style="--w: 687" hidden><img src="img/rimac/planta-segundo-nivel-1374.webp" srcset="img/rimac/planta-segundo-nivel-687.webp 687w, img/rimac/planta-segundo-nivel-1374.webp 1374w" sizes="(min-width: 1320px) 1100px, 94vw" width="1374" height="1160" loading="lazy" alt="Planta del segundo nivel: mediateca, cuarto de proyección y talleres de pintura y manualidades">
+            <figcaption><strong>Segundo nivel.</strong> Mediateca, cuarto de proyección y talleres de pintura y manualidades.</figcaption></figure>
+          <div class="lamina" id="pr4" role="tabpanel" aria-labelledby="tr4" hidden>
+            <div class="laminas-apiladas" style="width:100%">
+              <figure class="lamina" style="--w: 814"><img src="img/rimac/corte-aa-1628.webp" srcset="img/rimac/corte-aa-814.webp 814w, img/rimac/corte-aa-1628.webp 1628w" sizes="(min-width: 1320px) 1150px, 94vw" width="1628" height="750" loading="lazy" alt="Corte por la fachada: sótano con estacionamiento, SUM, zona de lectura, dirección y sala de reuniones">
+                <figcaption><strong>Corte por la fachada.</strong> Sótano, SUM, zona de lectura, dirección y sala de reuniones.</figcaption></figure>
+              <figure class="lamina" style="--w: 616"><img src="img/rimac/corte-auditorio-1232.webp" srcset="img/rimac/corte-auditorio-616.webp 616w, img/rimac/corte-auditorio-1232.webp 1232w" sizes="(min-width: 1320px) 985px, 94vw" width="1232" height="500" loading="lazy" alt="Corte por el auditorio con graderías, sala de proyección y cubierta curva de estructura metálica">
+                <figcaption><strong>Corte por el auditorio.</strong> Graderías, sala de proyección y cubierta curva de estructura metálica.</figcaption></figure>
+              <figure class="lamina" style="--w: 880"><img src="img/rimac/corte-talleres-1760.webp" srcset="img/rimac/corte-talleres-880.webp 880w, img/rimac/corte-talleres-1760.webp 1760w" sizes="(min-width: 1320px) 1150px, 94vw" width="1760" height="740" loading="lazy" alt="Corte longitudinal por los talleres de escultura, danza, pintura, música y canto en tres niveles sobre el sótano">
+                <figcaption><strong>Corte longitudinal por los talleres.</strong> Escultura, danza, pintura, música y canto en tres niveles sobre el sótano.</figcaption></figure>
+            </div>
+          </div>
+          <figure class="lamina" id="pr5" role="tabpanel" aria-labelledby="tr5" style="--w: 1247" hidden><img src="img/rimac/elevacion-frontal-2494.webp" srcset="img/rimac/elevacion-frontal-1247.webp 1247w, img/rimac/elevacion-frontal-2494.webp 2494w" sizes="(min-width: 1320px) 1150px, 94vw" width="2494" height="784" loading="lazy" alt="Elevación frontal con ritmo de ventanas verticales y volumen central acristalado">
+            <figcaption><strong>Elevación frontal.</strong> Ritmo de ventanas verticales y volumen central acristalado.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- salida: otros proyectos, sin bucle -->
+    <nav class="fin" id="fin" aria-labelledby="t-fin">
+      <div class="contenedor hoja" data-brillo>
+        <div class="fin__cab">
+          <div>
+            <p class="etiqueta">Sigue viendo</p>
+            <h2 class="titulo" id="t-fin">Otros proyectos</h2>
+          </div>
+          <div class="fin__acciones">
+            <a class="boton boton--volver" href="./#proyectos"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M16 10H4m5-5-5 5 5 5"/></svg>Todos los proyectos</a>
+            <a class="boton boton--lleno" href="./#contacto">Contacto</a>
+          </div>
+        </div>
+        <ul class="fin__lista">
+          <li><a href="centro-cultural-canete.html" style="--c-acr: var(--canete-acrilico)"><img src="img/canete/portada-1200.webp" width="1200" height="675" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Siguiente · Tesis</span><strong>Centro cultural y recreativo en Cañete</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+          <li><a href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)"><img src="img/spare/portada-1280.webp" width="1280" height="720" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Obra construida · Huancayo</span><strong>Spare Parts</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+          <li><a href="vivienda-multifamiliar.html" style="--c-acr: var(--vivienda-acrilico)"><img src="img/vivienda/portada-1200.webp" width="1200" height="840" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Taller 4 · Comas</span><strong>Vivienda multifamiliar</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <span>© 2026 Jashira Illescas Rodriguez · Lima, Perú</span>
+      <span>Taller 5 · Universidad Privada del Norte</span>
+    </div>
+  </footer>
+  <script type="module" src="assets/js/main.js?v=10"></script>
+</body>
+</html>
