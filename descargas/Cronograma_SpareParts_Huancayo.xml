@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project xmlns="http://schemas.microsoft.com/project">
+<SaveVersion>14</SaveVersion>
+<Name>Cronograma_SpareParts_Huancayo.xml</Name>
+<Title>Tienda Spare Parts Huancayo - Cronograma de obra</Title>
+<Author>Jashira Illescas Rodriguez</Author>
+<Company>2M MICON S.A.C.</Company>
+<ScheduleFromStart>1</ScheduleFromStart>
+<StartDate>2024-12-02T08:00:00</StartDate>
+<FinishDate>2025-03-01T17:00:00</FinishDate>
+<CalendarUID>1</CalendarUID>
+<DefaultStartTime>08:00:00</DefaultStartTime>
+<DefaultFinishTime>17:00:00</DefaultFinishTime>
+<MinutesPerDay>480</MinutesPerDay>
+<MinutesPerWeek>2880</MinutesPerWeek>
+<DaysPerMonth>24</DaysPerMonth>
+<CurrencySymbol>S/</CurrencySymbol>
+<CurrencyCode>PEN</CurrencyCode>
+<CurrencyDigits>2</CurrencyDigits>
+<Calendars><Calendar><UID>1</UID><Name>Obra lunes a sábado</Name><IsBaseCalendar>1</IsBaseCalendar><WeekDays>
+<WeekDay><DayType>1</DayType><DayWorking>0</DayWorking></WeekDay>
+<WeekDay><DayType>2</DayType><DayWorking>1</DayWorking><WorkingTimes><WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime><WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime></WorkingTimes></WeekDay>
+<WeekDay><DayType>3</DayType><DayWorking>1</DayWorking><WorkingTimes><WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime><WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime></WorkingTimes></WeekDay>
+<WeekDay><DayType>4</DayType><DayWorking>1</DayWorking><WorkingTimes><WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime><WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime></WorkingTimes></WeekDay>
+<WeekDay><DayType>5</DayType><DayWorking>1</DayWorking><WorkingTimes><WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime><WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime></WorkingTimes></WeekDay>
+<WeekDay><DayType>6</DayType><DayWorking>1</DayWorking><WorkingTimes><WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime><WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime></WorkingTimes></WeekDay>
+<WeekDay><DayType>7</DayType><DayWorking>1</DayWorking><WorkingTimes><WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime><WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime></WorkingTimes></WeekDay>
+<WeekDay><DayType>0</DayType><DayWorking>0</DayWorking><TimePeriod><FromDate>2024-12-09T00:00:00</FromDate><ToDate>2024-12-09T23:59:00</ToDate></TimePeriod></WeekDay>
+<WeekDay><DayType>0</DayType><DayWorking>0</DayWorking><TimePeriod><FromDate>2024-12-25T00:00:00</FromDate><ToDate>2024-12-25T23:59:00</ToDate></TimePeriod></WeekDay>
+<WeekDay><DayType>0</DayType><DayWorking>0</DayWorking><TimePeriod><FromDate>2025-01-01T00:00:00</FromDate><ToDate>2025-01-01T23:59:00</ToDate></TimePeriod></WeekDay>
+</WeekDays></Calendar></Calendars><Tasks>
+<Task><UID>0</UID><ID>0</ID><Name>Spare Parts · Huancayo</Name><Type>1</Type><IsNull>0</IsNull><OutlineNumber>0</OutlineNumber><OutlineLevel>0</OutlineLevel><Start>2024-12-02T08:00:00</Start><Finish>2025-03-01T17:00:00</Finish><Summary>1</Summary><Milestone>0</Milestone></Task>
+<Task>
+<UID>1</UID><ID>1</ID><Name>Inicio de obra (entrega del local)</Name><Type>1</Type><IsNull>0</IsNull><WBS>1</WBS><OutlineNumber>1</OutlineNumber><OutlineLevel>1</OutlineLevel><Start>2024-12-02T08:00:00</Start><Finish>2024-12-02T08:00:00</Finish><Duration>PT0H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>1</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>0.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+</Task>
+<Task>
+<UID>2</UID><ID>2</ID><Name>OBRAS PRELIMINARES</Name><Type>1</Type><IsNull>0</IsNull><WBS>2</WBS><OutlineNumber>2</OutlineNumber><OutlineLevel>1</OutlineLevel><Start>2024-12-02T08:00:00</Start><Finish>2024-12-11T17:00:00</Finish><Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>1</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+</Task>
+<Task>
+<UID>3</UID><ID>3</ID><Name>Movilización, protección de fachada e instalaciones provisionales</Name><Type>1</Type><IsNull>0</IsNull><WBS>2.1</WBS><OutlineNumber>2.1</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-02T08:00:00</Start><Finish>2024-12-04T17:00:00</Finish><Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>1858.15</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>1</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>4</UID><ID>4</ID><Name>Levantamiento, trazo y replanteo</Name><Type>1</Type><IsNull>0</IsNull><WBS>2.2</WBS><OutlineNumber>2.2</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-05T08:00:00</Start><Finish>2024-12-06T17:00:00</Finish><Duration>PT16H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>442.58</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>3</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>5</UID><ID>5</ID><Name>Desmontaje de instalaciones y elementos existentes</Name><Type>1</Type><IsNull>0</IsNull><WBS>2.3</WBS><OutlineNumber>2.3</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-07T08:00:00</Start><Finish>2024-12-11T17:00:00</Finish><Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>1200.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>4</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>6</UID><ID>6</ID><Name>REMODELACIÓN DE MUROS</Name><Type>1</Type><IsNull>0</IsNull><WBS>3</WBS><OutlineNumber>3</OutlineNumber><OutlineLevel>1</OutlineLevel><Start>2024-12-12T08:00:00</Start><Finish>2025-01-11T17:00:00</Finish><Duration>PT200H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>1</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+</Task>
+<Task>
+<UID>7</UID><ID>7</ID><Name>Demolición de tabiques y picado para canalizaciones</Name><Type>1</Type><IsNull>0</IsNull><WBS>3.1</WBS><OutlineNumber>3.1</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-12T08:00:00</Start><Finish>2024-12-17T17:00:00</Finish><Duration>PT40H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>2492.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>5</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>8</UID><ID>8</ID><Name>Muros de ladrillo de SS.HH.</Name><Type>1</Type><IsNull>0</IsNull><WBS>3.2</WBS><OutlineNumber>3.2</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-18T08:00:00</Start><Finish>2024-12-21T17:00:00</Finish><Duration>PT32H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>396.53</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>7</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>9</UID><ID>9</ID><Name>Tarrajeo de muros y columnas</Name><Type>1</Type><IsNull>0</IsNull><WBS>3.3</WBS><OutlineNumber>3.3</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-20T08:00:00</Start><Finish>2025-01-11T17:00:00</Finish><Duration>PT144H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>12071.21</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>8</PredecessorUID><Type>3</Type><CrossProject>0</CrossProject><LinkLag>9600</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>10</UID><ID>10</ID><Name>Nivelación del piso existente</Name><Type>1</Type><IsNull>0</IsNull><WBS>3.4</WBS><OutlineNumber>3.4</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-03T08:00:00</Start><Finish>2025-01-07T17:00:00</Finish><Duration>PT32H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>1956.92</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>9</PredecessorUID><Type>3</Type><CrossProject>0</CrossProject><LinkLag>48000</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>11</UID><ID>11</ID><Name>MEZANINE Y ESCALERA METÁLICA</Name><Type>1</Type><IsNull>0</IsNull><WBS>4</WBS><OutlineNumber>4</OutlineNumber><OutlineLevel>1</OutlineLevel><Start>2024-12-23T08:00:00</Start><Finish>2025-01-08T17:00:00</Finish><Duration>PT104H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>1</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+</Task>
+<Task>
+<UID>12</UID><ID>12</ID><Name>Columnas metálicas del mezanine (anclaje)</Name><Type>1</Type><IsNull>0</IsNull><WBS>4.1</WBS><OutlineNumber>4.1</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-23T08:00:00</Start><Finish>2024-12-24T17:00:00</Finish><Duration>PT16H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>2100.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>8</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>13</UID><ID>13</ID><Name>Vigas y viguetas metálicas</Name><Type>1</Type><IsNull>0</IsNull><WBS>4.2</WBS><OutlineNumber>4.2</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-26T08:00:00</Start><Finish>2024-12-30T17:00:00</Finish><Duration>PT32H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>2750.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>12</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>14</UID><ID>14</ID><Name>Losa colaborante del mezanine</Name><Type>1</Type><IsNull>0</IsNull><WBS>4.3</WBS><OutlineNumber>4.3</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-31T08:00:00</Start><Finish>2025-01-03T17:00:00</Finish><Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>1088.50</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>13</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>15</UID><ID>15</ID><Name>Escalera metálica de 12 pasos</Name><Type>1</Type><IsNull>0</IsNull><WBS>4.4</WBS><OutlineNumber>4.4</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-31T08:00:00</Start><Finish>2025-01-04T17:00:00</Finish><Duration>PT32H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>3000.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>13</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>16</UID><ID>16</ID><Name>Baranda de vidrio y franja turquesa</Name><Type>1</Type><IsNull>0</IsNull><WBS>4.5</WBS><OutlineNumber>4.5</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-06T08:00:00</Start><Finish>2025-01-08T17:00:00</Finish><Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>1196.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>14</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>15</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>17</UID><ID>17</ID><Name>INSTALACIONES</Name><Type>1</Type><IsNull>0</IsNull><WBS>5</WBS><OutlineNumber>5</OutlineNumber><OutlineLevel>1</OutlineLevel><Start>2024-12-14T08:00:00</Start><Finish>2025-01-18T17:00:00</Finish><Duration>PT232H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>1</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+</Task>
+<Task>
+<UID>18</UID><ID>18</ID><Name>Instalaciones sanitarias de SS.HH.</Name><Type>1</Type><IsNull>0</IsNull><WBS>5.1</WBS><OutlineNumber>5.1</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-19T08:00:00</Start><Finish>2024-12-24T17:00:00</Finish><Duration>PT40H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>1666.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>8</PredecessorUID><Type>3</Type><CrossProject>0</CrossProject><LinkLag>4800</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>19</UID><ID>19</ID><Name>IIEE: tuberías, cajas y canalizaciones</Name><Type>1</Type><IsNull>0</IsNull><WBS>5.2</WBS><OutlineNumber>5.2</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-14T08:00:00</Start><Finish>2024-12-23T17:00:00</Finish><Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>2723.40</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>7</PredecessorUID><Type>3</Type><CrossProject>0</CrossProject><LinkLag>9600</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>20</UID><ID>20</ID><Name>IIEE: cableado, tablero y pozo a tierra</Name><Type>1</Type><IsNull>0</IsNull><WBS>5.3</WBS><OutlineNumber>5.3</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-13T08:00:00</Start><Finish>2025-01-18T17:00:00</Finish><Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>4953.60</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>19</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>9</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>21</UID><ID>21</ID><Name>ACABADOS</Name><Type>1</Type><IsNull>0</IsNull><WBS>6</WBS><OutlineNumber>6</OutlineNumber><OutlineLevel>1</OutlineLevel><Start>2025-01-13T08:00:00</Start><Finish>2025-02-10T17:00:00</Finish><Duration>PT200H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>1</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+</Task>
+<Task>
+<UID>22</UID><ID>22</ID><Name>Pintura negra en techo y muros altos</Name><Type>1</Type><IsNull>0</IsNull><WBS>6.1</WBS><OutlineNumber>6.1</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-13T08:00:00</Start><Finish>2025-01-21T17:00:00</Finish><Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>3127.75</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>9</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>19</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>23</UID><ID>23</ID><Name>Porcelanato en pisos y paredes de SS.HH.</Name><Type>1</Type><IsNull>0</IsNull><WBS>6.2</WBS><OutlineNumber>6.2</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-13T08:00:00</Start><Finish>2025-01-17T17:00:00</Finish><Duration>PT40H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>1457.54</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>18</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>9</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>24</UID><ID>24</ID><Name>Piso SPC tipo madera</Name><Type>1</Type><IsNull>0</IsNull><WBS>6.3</WBS><OutlineNumber>6.3</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-22T08:00:00</Start><Finish>2025-01-28T17:00:00</Finish><Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>9516.28</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>10</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>22</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>25</UID><ID>25</ID><Name>Pintura látex en muros y negro en columnas</Name><Type>1</Type><IsNull>0</IsNull><WBS>6.4</WBS><OutlineNumber>6.4</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-22T08:00:00</Start><Finish>2025-01-30T17:00:00</Finish><Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>2629.93</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>22</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>26</UID><ID>26</ID><Name>Panel perforado, muro verde y listones</Name><Type>1</Type><IsNull>0</IsNull><WBS>6.5</WBS><OutlineNumber>6.5</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-31T08:00:00</Start><Finish>2025-02-10T17:00:00</Finish><Duration>PT72H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>7370.35</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>25</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>27</UID><ID>27</ID><Name>Puertas y aparatos sanitarios</Name><Type>1</Type><IsNull>0</IsNull><WBS>6.6</WBS><OutlineNumber>6.6</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-18T08:00:00</Start><Finish>2025-01-21T17:00:00</Finish><Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>2940.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>23</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>28</UID><ID>28</ID><Name>FACHADA Y LETRERO</Name><Type>1</Type><IsNull>0</IsNull><WBS>7</WBS><OutlineNumber>7</OutlineNumber><OutlineLevel>1</OutlineLevel><Start>2024-12-26T08:00:00</Start><Finish>2025-01-23T17:00:00</Finish><Duration>PT192H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>1</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+</Task>
+<Task>
+<UID>29</UID><ID>29</ID><Name>Estructura metálica de fachada</Name><Type>1</Type><IsNull>0</IsNull><WBS>7.1</WBS><OutlineNumber>7.1</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-26T08:00:00</Start><Finish>2024-12-31T17:00:00</Finish><Duration>PT40H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>4178.85</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>9</PredecessorUID><Type>3</Type><CrossProject>0</CrossProject><LinkLag>19200</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>30</UID><ID>30</ID><Name>Revestimiento ACM negro y turquesa</Name><Type>1</Type><IsNull>0</IsNull><WBS>7.2</WBS><OutlineNumber>7.2</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-02T08:00:00</Start><Finish>2025-01-08T17:00:00</Finish><Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>3568.90</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>29</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>31</UID><ID>31</ID><Name>Mampara y puerta de vidrio templado</Name><Type>1</Type><IsNull>0</IsNull><WBS>7.3</WBS><OutlineNumber>7.3</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-09T08:00:00</Start><Finish>2025-01-14T17:00:00</Finish><Duration>PT40H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>7299.85</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>30</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>32</UID><ID>32</ID><Name>Letrero luminoso (logo y letras)</Name><Type>1</Type><IsNull>0</IsNull><WBS>7.4</WBS><OutlineNumber>7.4</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-20T08:00:00</Start><Finish>2025-01-23T17:00:00</Finish><Duration>PT32H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>6650.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>30</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>20</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>33</UID><ID>33</ID><Name>MOBILIARIO E ILUMINACIÓN</Name><Type>1</Type><IsNull>0</IsNull><WBS>8</WBS><OutlineNumber>8</OutlineNumber><OutlineLevel>1</OutlineLevel><Start>2024-12-07T08:00:00</Start><Finish>2025-02-21T17:00:00</Finish><Duration>PT504H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>1</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+</Task>
+<Task>
+<UID>34</UID><ID>34</ID><Name>Fabricación del mobiliario en taller y traslado</Name><Type>1</Type><IsNull>0</IsNull><WBS>8.1</WBS><OutlineNumber>8.1</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2024-12-07T08:00:00</Start><Finish>2025-01-31T17:00:00</Finish><Duration>PT360H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>15131.25</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>4</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>35</UID><ID>35</ID><Name>Instalación del mobiliario de exhibición y caja</Name><Type>1</Type><IsNull>0</IsNull><WBS>8.2</WBS><OutlineNumber>8.2</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-02-11T08:00:00</Start><Finish>2025-02-21T17:00:00</Finish><Duration>PT80H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>7506.25</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>34</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>24</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>26</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>36</UID><ID>36</ID><Name>Luminarias suspendidas y artefactos</Name><Type>1</Type><IsNull>0</IsNull><WBS>8.3</WBS><OutlineNumber>8.3</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-01-31T08:00:00</Start><Finish>2025-02-05T17:00:00</Finish><Duration>PT40H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>5825.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>25</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>20</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>37</UID><ID>37</ID><Name>Paneles gráficos suspendidos y señalética</Name><Type>1</Type><IsNull>0</IsNull><WBS>8.4</WBS><OutlineNumber>8.4</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-02-06T08:00:00</Start><Finish>2025-02-08T17:00:00</Finish><Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>2800.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>36</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>38</UID><ID>38</ID><Name>CIERRE</Name><Type>1</Type><IsNull>0</IsNull><WBS>9</WBS><OutlineNumber>9</OutlineNumber><OutlineLevel>1</OutlineLevel><Start>2025-02-22T08:00:00</Start><Finish>2025-02-28T17:00:00</Finish><Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>1</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+</Task>
+<Task>
+<UID>39</UID><ID>39</ID><Name>Pruebas, limpieza final y levantamiento de observaciones</Name><Type>1</Type><IsNull>0</IsNull><WBS>9.1</WBS><OutlineNumber>9.1</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-02-22T08:00:00</Start><Finish>2025-02-28T17:00:00</Finish><Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>0</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>1878.12</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>35</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>37</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>31</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>32</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>27</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+<PredecessorLink><PredecessorUID>16</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+<Task>
+<UID>40</UID><ID>40</ID><Name>Entrega de la tienda</Name><Type>1</Type><IsNull>0</IsNull><WBS>9.2</WBS><OutlineNumber>9.2</OutlineNumber><OutlineLevel>2</OutlineLevel><Start>2025-03-01T08:00:00</Start><Finish>2025-03-01T08:00:00</Finish><Duration>PT0H0M0S</Duration><DurationFormat>7</DurationFormat><Milestone>1</Milestone><Summary>0</Summary><Manual>0</Manual><ConstraintType>0</ConstraintType><CalendarUID>-1</CalendarUID>
+<FixedCost>0.00</FixedCost><FixedCostAccrual>3</FixedCostAccrual>
+<PredecessorLink><PredecessorUID>39</PredecessorUID><Type>1</Type><CrossProject>0</CrossProject><LinkLag>0</LinkLag><LagFormat>7</LagFormat></PredecessorLink>
+</Task>
+</Tasks></Project>

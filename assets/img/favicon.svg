@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- símbolo de nivel de piso terminado (NPT), como en los planos, en su rosa y vino -->
+  <circle cx="32" cy="32" r="27" fill="#ecd4ce" stroke="#772733" stroke-width="5"/>
+  <path d="M32 32 L32 5 A27 27 0 0 1 59 32 Z" fill="#772733"/>
+  <path d="M32 32 L32 59 A27 27 0 0 1 5 32 Z" fill="#772733"/>
+</svg>
