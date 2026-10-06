@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hospital tipo II en Los Olivos · Jashira Illescas</title>
+  <meta name="description" content="Taller 7 (UPN), proyecto en grupo: hospital tipo II en Los Olivos, Lima. Análisis de sitio, composición volumétrica, plan maestro, plantas, cortes, elevaciones, detalles y renders.">
+  <meta name="theme-color" content="#f2f2ef">
+  <meta property="og:title" content="Hospital tipo II en Los Olivos · Jashira Illescas">
+  <meta property="og:description" content="Un hospital de cuatro niveles alrededor de patios y jardines, en el cruce de la Av. Universitaria con la Av. Gerardo Unger.">
+  <meta property="og:image" content="img/og.jpg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght,FLAR,VOLM@300..700,40,0&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,100,0;1,9..144,300..600,100,1&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css?v=12">
+  <script>
+    // Antes del primer pintado: marca que hay JS, permite ver la versión con todas las animaciones
+    // (localStorage animar=1) y, al llegar desde otra página del sitio, le da a la portada (o a la tarjeta
+    // del proyecto de donde vienes) el nombre «foto» para que la imagen viaje en la transición.
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("js");
+      try { if (localStorage.getItem("animar") === "1") h.classList.add("animar"); } catch (e) {}
+      addEventListener("pagereveal", function (e) {
+        if (!e.viewTransition || (!h.classList.contains("animar") && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+        var img = document.querySelector(".cubierta__img img");
+        if (!img) {
+          var act = window.navigation && navigation.activation, desde = act && act.from && act.from.url;
+          var archivo = desde ? new URL(desde).pathname.split("/").pop() : "";
+          if (archivo) img = document.querySelector('.destacada[href="' + archivo + '"] > img, .tarjeta[href="' + archivo + '"] img');
+        }
+        if (!img) return;
+        var r = img.getBoundingClientRect();
+        if (!(r.width && r.bottom > 0 && r.top < innerHeight)) return;
+        img.style.viewTransitionName = "foto";
+        e.viewTransition.finished.finally(function () { img.style.viewTransitionName = ""; });
+      });
+    })();
+  </script>
+  <script type="speculationrules">
+    { "prerender": [{ "where": { "and": [{ "href_matches": "/*" }, { "not": { "selector_matches": "[download], [target=_blank]" } }] }, "eagerness": "moderate" }] }
+  </script>
+</head>
+<body data-proyecto="hospital">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="isla isla--proyecto vidrio" data-isla data-brillo>
+    <a class="isla__marca" href="./" aria-label="Inicio: Jashira Illescas"><span class="isla__sello" aria-hidden="true">JI</span><span class="isla__nombre">Jashira Illescas</span></a>
+    <span class="isla__sep" aria-hidden="true">/</span>
+    <button class="isla__boton isla__boton--proyecto" type="button" data-abre="proyectos" aria-expanded="false" aria-controls="proyectos"><i aria-hidden="true"></i><span class="isla__largo">Hospital, Los Olivos</span><span class="isla__corto">Hospital</span><svg class="flecha-abajo" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <span class="isla__sep" aria-hidden="true">/</span>
+    <button class="isla__boton isla__boton--seccion" type="button" data-abre="secciones" aria-expanded="false" aria-controls="secciones"><span data-seccion-actual>Secciones</span><svg class="flecha-abajo" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <span class="isla__avance" aria-hidden="true"></span>
+  </header>
+  <nav class="emergente vidrio" id="secciones" aria-label="Secciones del proyecto">
+    <p class="emergente__titulo">En esta página</p>
+    <ul class="lista-secciones">
+      <li><a href="#lugar"><span>El lugar</span><span>análisis de sitio</span></a></li>
+      <li><a href="#volumen"><span>Volumen</span><span>cinco pasos</span></a></li>
+      <li><a href="#planos"><span>Planos</span><span>plantas, cortes y elevaciones</span></a></li>
+      <li><a href="#detalle"><span>A detalle</span><span>Emergencias y el hall</span></a></li>
+      <li><a href="#renders"><span>Renders</span><span>patios, hall e ingresos</span></a></li>
+      <li><a href="#fin"><span>Otros proyectos</span><span>y contacto</span></a></li>
+    </ul>
+  </nav>
+  <nav class="emergente vidrio" id="proyectos" aria-label="Proyectos">
+    <p class="emergente__titulo">Proyectos</p>
+    <ul class="lista-proyectos">
+      <li><a href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)"><img src="img/spare/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Spare Parts, Huancayo</strong><small>Obra construida</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="vivienda-multifamiliar.html" style="--c-acr: var(--vivienda-acrilico)"><img src="img/vivienda/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Vivienda multifamiliar</strong><small>Taller 4 · Comas</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="centro-cultural-rimac.html" style="--c-acr: var(--rimac-acrilico)"><img src="img/rimac/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural</strong><small>Taller 5 · Rímac</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="hospital-los-olivos.html" aria-current="page" style="--c-acr: var(--hospital-acrilico)"><img src="img/hospital/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Hospital tipo II</strong><small>Taller 7 · Los Olivos</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="centro-cultural-canete.html" style="--c-acr: var(--canete-acrilico)"><img src="img/canete/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural y recreativo</strong><small>Tesis · Cañete</small></span><i aria-hidden="true"></i></a></li>
+    </ul>
+    <div class="emergente__pie">
+      <a href="./">Inicio</a>
+      <a href="./#perfil">Perfil</a>
+      <a href="./#contacto">Contacto</a>
+      <a class="cv" href="descargas/CV_Jashira_Illescas.pdf" download>CV en PDF</a>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <section class="cubierta" aria-labelledby="t-proyecto">
+      <figure class="cubierta__img"><img src="img/hospital/portada-2000.webp" srcset="img/hospital/portada-1200.webp 1200w, img/hospital/portada-2000.webp 2000w" sizes="100vw" width="2000" height="1114" fetchpriority="high" alt="Vista aérea del hospital: volúmenes blancos con parasoles verticales, el ingreso de vidrio con el nombre Qhali Kay y jardines en forma de triángulo"></figure>
+      <div class="contenedor cubierta__contenido">
+        <div class="cubierta__placa vidrio vidrio--oscuro" data-brillo>
+          <span class="canto" aria-hidden="true"></span>
+          <p class="etiqueta etiqueta--clara">Taller 7 · UPN · proyecto en grupo</p>
+          <h1 class="cubierta__titulo" id="t-proyecto">Hospital tipo&nbsp;II en <em>Los Olivos</em></h1>
+        </div>
+        <a class="cubierta__bajar vidrio vidrio--oscuro" href="#resumen">Ver el proyecto <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 4v12m-5-5 5 5 5-5"/></svg></a>
+      </div>
+    </section>
+
+    <!-- resumen: lema y ficha, fuera de la foto -->
+    <section class="resumen" id="resumen" aria-label="Resumen del proyecto">
+      <div class="contenedor hoja resumen__hoja revelar" data-brillo>
+        <p class="resumen__lema">Qhali Kay («salud», en quechua) es un hospital para el norte de Lima: cuatro niveles alrededor de patios y jardines, un ingreso propio para Emergencias y espacio reservado para crecer.</p>
+        <dl class="ficha">
+          <div><dt>Lugar</dt><dd>Los Olivos, Lima</dd></div>
+          <div><dt>Frentes</dt><dd>Av. Universitaria y Av. Gerardo Unger</dd></div>
+          <div><dt>Terreno</dt><dd>24,904 m²</dd></div>
+          <div><dt>Niveles</dt><dd>Sótano y 4 niveles</dd></div>
+          <div><dt>Curso</dt><dd>Taller 7 · UPN · en grupo · Expo-Proyectos 2024-1</dd></div>
+          <div class="ficha__ancha"><dt>Programa</dt><dd>Emergencias, consulta externa, diagnóstico por imágenes, hospitalización, UCI, centros quirúrgico y obstétrico, rehabilitación, laboratorio y banco de sangre</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="seccion" id="lugar" aria-labelledby="t-lugar">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">El lugar</p>
+          <h2 class="titulo" id="t-lugar">Salud más cerca, en el norte de Lima</h2>
+          <p class="entradilla">Un hospital en Los Olivos mejoraría el acceso a servicios de salud de calidad. Antes de dibujar, el análisis de sitio estudió el entorno, las vías y el terreno.</p>
+        </header>
+
+        <!-- ubicación: el mapa de usos de suelo del panel, con su leyenda -->
+        <div class="ubicacion revelar">
+          <figure class="ubicacion__mapa capa">
+            <div class="mapa-lienzo" style="max-width:560px">
+              <img src="img/hospital/mapa-usos-1440.webp" srcset="img/hospital/mapa-usos-900.webp 900w, img/hospital/mapa-usos-1440.webp 1440w" sizes="(min-width: 860px) 560px, 92vw" width="1440" height="1440" loading="lazy" alt="Mapa circular del entorno con las manzanas coloreadas según su uso: vivienda, comercio, áreas verdes e industria, y las avenidas Universitaria, Gerardo Unger, Metropolitana, Alfredo Mendiola y Panamericana Norte">
+            </div>
+            <figcaption>Usos de suelo alrededor del terreno</figcaption>
+          </figure>
+          <div class="ubicacion__texto">
+            <h3 class="titulo-3">En el cruce de dos avenidas</h3>
+            <p>El terreno está en el límite de Los Olivos con Comas, donde la Av. Universitaria cruza la Av. Gerardo Unger. Se llega desde la red vial metropolitana, y el hospital atendería a quienes viven a menos de una hora de viaje.</p>
+            <ul class="leyenda-mapa">
+              <li><i style="background:#e2dedd;height:10px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)"></i>Zona residencial · 33.6 %</li>
+              <li><i style="background:#ddbdac;height:10px"></i>Áreas verdes · 22.2 %</li>
+              <li><i style="background:#d6bfb4;height:10px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)"></i>Zona comercial · 21.6 %</li>
+              <li><i style="background:#c1b0ae;height:10px"></i>Zona industrial · 7.5 %</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="kpis revelar" style="margin-top:clamp(2rem,4vw,3rem)">
+          <div class="kpi"><span class="kpi__etq">Terreno</span><span class="kpi__valor">2.5 ha</span><span class="kpi__det">24,904 m² y 667 m de perímetro</span></div>
+          <div class="kpi"><span class="kpi__etq">Edificio</span><span class="kpi__valor">50 %</span><span class="kpi__det">del terreno</span></div>
+          <div class="kpi"><span class="kpi__etq">Área libre</span><span class="kpi__valor">30 %</span><span class="kpi__det">patios, jardines y plazas</span></div>
+          <div class="kpi"><span class="kpi__etq">Ampliación futura</span><span class="kpi__valor">20 %</span><span class="kpi__det">reservado para crecer</span></div>
+        </div>
+
+        <h3 class="titulo-3" style="margin-top:clamp(2rem,4vw,3rem)">Por qué este terreno</h3>
+        <div class="normas revelar">
+          <div class="norma"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="6" width="24" height="24" rx="4"/><path d="M8 19h24M13 11h14"/><circle cx="14" cy="25" r="1.6"/><circle cx="26" cy="25" r="1.6"/><path d="M12 30v4M28 30v4"/></svg><strong>Acceso desde la red vial metropolitana</strong></div>
+          <div class="norma"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 5 35 32H5Z"/><path d="M20 15v8M20 27v1"/></svg><strong>Fuera de zona de riesgo</strong></div>
+          <div class="norma"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M5 35h30M8 35V18h10v17M22 35V8h10v27"/><path d="M12 22h2M12 27h2M26 13h2M26 18h2M26 23h2M26 28h2"/></svg><strong>Cerca de otros equipamientos</strong></div>
+          <div class="norma"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M22 4 10 22h9l-2 14 13-19h-9Z"/></svg><strong>Acceso a servicios públicos</strong></div>
+          <div class="norma"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="20" cy="20" r="14"/><circle cx="20" cy="20" r="8"/><circle cx="20" cy="20" r="2.5" fill="currentColor"/></svg><strong>Cerca de centralidades urbanas</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="volumen" aria-labelledby="t-volumen">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Composición</p>
+          <h2 class="titulo" id="t-volumen">Cinco pasos para llegar a la forma</h2>
+          <p class="entradilla">Un eje ordena tres prismas; al vaciarlos quedan los patios que dan luz y aire a cada ala. Elige un paso para ver su diagrama.</p>
+        </header>
+        <div class="proceso revelar" data-proceso>
+          <div class="proceso__escena">
+            <img class="activo" data-paso="1" src="img/hospital/proceso-1-559.webp" width="559" height="438" loading="lazy" alt="Diagrama 1: el terreno con sus retiros y un solo volumen al centro">
+            <img data-paso="2" src="img/hospital/proceso-2-559.webp" width="559" height="438" loading="lazy" alt="Diagrama 2: tres prismas rectangulares ordenados por un eje">
+            <img data-paso="3" src="img/hospital/proceso-3-559.webp" width="559" height="438" loading="lazy" alt="Diagrama 3: los prismas vaciados por dentro, formando patios">
+            <img data-paso="4" src="img/hospital/proceso-4-559.webp" width="559" height="438" loading="lazy" alt="Diagrama 4: el volumen apilado en varios niveles">
+            <img data-paso="5" src="img/hospital/proceso-5-559.webp" width="559" height="438" loading="lazy" alt="Diagrama 5: la ampliación futura siguiendo la forma principal">
+          </div>
+          <ol class="proceso__pasos">
+            <li><button type="button" data-paso="1" aria-pressed="true"><b>1</b><strong>Terreno y retiros</strong><span>Se delimita el terreno respetando los retiros.</span></button></li>
+            <li><button type="button" data-paso="2" aria-pressed="false"><b>2</b><strong>Un eje, tres prismas</strong><span>Un eje principal ordena tres prismas rectangulares.</span></button></li>
+            <li><button type="button" data-paso="3" aria-pressed="false"><b>3</b><strong>Patios</strong><span>Los prismas se vacían por dentro y aparecen los patios.</span></button></li>
+            <li><button type="button" data-paso="4" aria-pressed="false"><b>4</b><strong>Varios niveles</strong><span>El volumen crece en altura siguiendo la forma inicial.</span></button></li>
+            <li><button type="button" data-paso="5" aria-pressed="false"><b>5</b><strong>Crecer después</strong><span>La ampliación futura sigue la forma principal.</span></button></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="planos" aria-labelledby="t-planos">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Planos</p>
+          <h2 class="titulo" id="t-planos">Plantas, cortes y elevaciones</h2>
+          <p class="entradilla">Del plan maestro al tercer nivel: cada unidad del hospital en su piso, con circulaciones separadas para el público y para el personal.</p>
+        </header>
+        <div class="mesa revelar">
+          <div class="mesa__barra">
+            <div class="segmentado" data-segmentado role="tablist" aria-label="Láminas">
+              <button type="button" role="tab" id="th1" aria-controls="ph1" aria-selected="true">Plan maestro</button>
+              <button type="button" role="tab" id="th2" aria-controls="ph2" aria-selected="false">Sótano</button>
+              <button type="button" role="tab" id="th3" aria-controls="ph3" aria-selected="false">Primer nivel</button>
+              <button type="button" role="tab" id="th4" aria-controls="ph4" aria-selected="false">Segundo nivel</button>
+              <button type="button" role="tab" id="th5" aria-controls="ph5" aria-selected="false">Tercer nivel</button>
+              <button type="button" role="tab" id="th6" aria-controls="ph6" aria-selected="false">Cortes</button>
+              <button type="button" role="tab" id="th7" aria-controls="ph7" aria-selected="false">Elevaciones</button>
+            </div>
+          </div>
+          <figure class="lamina" id="ph1" role="tabpanel" aria-labelledby="th1" style="--w: 1400"><img src="img/hospital/plan-maestro-2600.webp" srcset="img/hospital/plan-maestro-1400.webp 1400w, img/hospital/plan-maestro-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="1574" loading="lazy" alt="Plan maestro: el hospital entre la Av. Universitaria y la Av. Gerardo Unger, con patios, jardines y tres zonas de ampliación">
+            <figcaption><strong>Plan maestro.</strong> El hospital entre la Av. Universitaria y la Av. Gerardo Unger, con patios, jardines terapéuticos, un huerto y tres zonas reservadas para la ampliación.</figcaption></figure>
+          <figure class="lamina" id="ph2" role="tabpanel" aria-labelledby="th2" style="--w: 1400" hidden><img src="img/hospital/planta-sotano-2600.webp" srcset="img/hospital/planta-sotano-1400.webp 1400w, img/hospital/planta-sotano-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="1957" loading="lazy" alt="Planta del sótano: estacionamiento, auditorio, cafetería, biblioteca y anatomía patológica">
+            <figcaption><strong>Sótano · esc. 1/125.</strong> Estacionamiento, auditorio, cafetería, biblioteca y anatomía patológica.</figcaption></figure>
+          <figure class="lamina" id="ph3" role="tabpanel" aria-labelledby="th3" style="--w: 1400" hidden><img src="img/hospital/planta-primer-nivel-2600.webp" srcset="img/hospital/planta-primer-nivel-1400.webp 1400w, img/hospital/planta-primer-nivel-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="1957" loading="lazy" alt="Planta del primer nivel: consulta externa, diagnóstico por imágenes, farmacia, nutrición, lavandería, el hall de ingreso y los patios">
+            <figcaption><strong>Primer nivel · esc. 1/125.</strong> Consulta externa, diagnóstico por imágenes, farmacia, nutrición, lavandería y el hall de ingreso. Emergencias, a la izquierda, queda fuera de esta lámina: su planta completa está en «A detalle».</figcaption></figure>
+          <figure class="lamina" id="ph4" role="tabpanel" aria-labelledby="th4" style="--w: 1400" hidden><img src="img/hospital/planta-segundo-nivel-2600.webp" srcset="img/hospital/planta-segundo-nivel-1400.webp 1400w, img/hospital/planta-segundo-nivel-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="1957" loading="lazy" alt="Planta del segundo nivel: UCI, hospitalización, consulta externa, patología clínica, banco de sangre y rehabilitación alrededor de dos patios">
+            <figcaption><strong>Segundo nivel · esc. 1/125.</strong> UCI, hospitalización, consulta externa, patología clínica, banco de sangre y rehabilitación, alrededor de dos patios.</figcaption></figure>
+          <figure class="lamina" id="ph5" role="tabpanel" aria-labelledby="th5" style="--w: 1400" hidden><img src="img/hospital/planta-tercer-nivel-2600.webp" srcset="img/hospital/planta-tercer-nivel-1400.webp 1400w, img/hospital/planta-tercer-nivel-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="1922" loading="lazy" alt="Planta del tercer nivel: centro obstétrico, centro quirúrgico, esterilización, residencia médica, techo verde y terraza">
+            <figcaption><strong>Tercer nivel · esc. 1/125.</strong> Centro obstétrico, centro quirúrgico, esterilización y residencia médica, con un techo verde y una terraza. En el cuarto nivel solo queda la administración.</figcaption></figure>
+          <div class="lamina" id="ph6" role="tabpanel" aria-labelledby="th6" hidden>
+            <div class="laminas-apiladas" style="width:100%">
+              <figure class="lamina" style="--w: 1400"><img src="img/hospital/corte-aa-2600.webp" srcset="img/hospital/corte-aa-1400.webp 1400w, img/hospital/corte-aa-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="611" loading="lazy" alt="Corte A-A con el estacionamiento en el sótano, un patio con árboles y las alas de tres niveles"><figcaption><strong>Corte A-A · esc. 1/125.</strong> El estacionamiento en el sótano, un patio con árboles y las alas de hospitalización.</figcaption></figure>
+              <figure class="lamina" style="--w: 1400"><img src="img/hospital/corte-dd-2600.webp" srcset="img/hospital/corte-dd-1400.webp 1400w, img/hospital/corte-dd-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="695" loading="lazy" alt="Corte D-D desde la Av. Gerardo Unger, con el patio hundido de graderías y los patios en doble altura"><figcaption><strong>Corte D-D · esc. 1/125.</strong> Desde la Av. Gerardo Unger: el patio hundido con graderías y los patios que cruzan los niveles.</figcaption></figure>
+            </div>
+          </div>
+          <div class="lamina" id="ph7" role="tabpanel" aria-labelledby="th7" hidden>
+            <div class="laminas-apiladas" style="width:100%">
+              <figure class="lamina" style="--w: 1400"><img src="img/hospital/elevacion-frontal-2600.webp" srcset="img/hospital/elevacion-frontal-1400.webp 1400w, img/hospital/elevacion-frontal-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="770" loading="lazy" alt="Elevación frontal con mamparas de vidrio, muros blancos y el ingreso a Emergencias"><figcaption><strong>Elevación frontal · esc. 1/125.</strong> Mamparas de vidrio templado con carpintería de aluminio y muros blancos; a la izquierda, el ingreso a Emergencias.</figcaption></figure>
+              <figure class="lamina" style="--w: 1400"><img src="img/hospital/elevacion-lateral-2600.webp" srcset="img/hospital/elevacion-lateral-1400.webp 1400w, img/hospital/elevacion-lateral-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="767" loading="lazy" alt="Elevación lateral derecha con el volumen en voladizo sobre el ingreso"><figcaption><strong>Elevación lateral derecha · esc. 1/125.</strong> Al centro, el volumen que vuela sobre el ingreso principal.</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="detalle" aria-labelledby="t-detalle">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">A detalle</p>
+          <h2 class="titulo" id="t-detalle">Emergencias y el hall de ingreso</h2>
+          <p class="entradilla">Emergencias tiene su propio ingreso para ambulancias. El hall es una fachada de vidrio de ocho metros de alto; su corte a 1/25 muestra cómo se arma.</p>
+        </header>
+        <div class="mesa revelar">
+          <div class="mesa__barra">
+            <div class="segmentado" data-segmentado role="tablist" aria-label="Detalles">
+              <button type="button" role="tab" id="td1" aria-controls="pd1" aria-selected="true">Emergencias <small>1/75</small></button>
+              <button type="button" role="tab" id="td2" aria-controls="pd2" aria-selected="false">Hall <small>1/25</small></button>
+            </div>
+          </div>
+          <figure class="lamina" id="pd1" role="tabpanel" aria-labelledby="td1" style="--w: 1400"><img src="img/hospital/planta-emergencias-2600.webp" srcset="img/hospital/planta-emergencias-1400.webp 1400w, img/hospital/planta-emergencias-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="2201" loading="lazy" alt="Planta de la unidad de Emergencias: admisión, triaje, tópicos, trauma shock, rehidratación y salas de observación">
+            <figcaption><strong>Unidad de Emergencias · esc. 1/75.</strong> Admisión, triaje, tópicos, unidad de trauma shock, rehidratación y salas de observación para adultos, niños y pacientes aislados.</figcaption></figure>
+          <figure class="lamina" id="pd2" role="tabpanel" aria-labelledby="td2" style="--w: 1400" hidden><img src="img/hospital/detalle-hall-2600.webp" srcset="img/hospital/detalle-hall-1400.webp 1400w, img/hospital/detalle-hall-2600.webp 2600w" sizes="(min-width: 1320px) 1150px, 94vw" width="2600" height="2229" loading="lazy" alt="Corte de la fachada de vidrio del hall principal, con el pasadizo del segundo nivel y sus materiales anotados">
+            <figcaption><strong>Corte del hall principal · esc. 1/25.</strong> Vidrio templado de 10 mm sobre montantes de acero inoxidable y el pasadizo del segundo nivel sobre placa colaborante.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="renders" aria-labelledby="t-renders">
+      <div class="contenedor hoja" data-brillo>
+        <header class="cabeza cabeza--dos revelar">
+          <p class="etiqueta">Renders</p>
+          <h2 class="titulo" id="t-renders">Patios, hall e ingresos</h2>
+          <p class="entradilla">Los patios y los jardines se ven desde los pasillos y las salas de espera; el hall reúne los dos primeros niveles bajo el volumen que vuela sobre el ingreso.</p>
+        </header>
+        <div class="galeria revelar">
+          <figure class="foto g-6"><img src="img/hospital/render-patio-1056.webp" width="1056" height="764" loading="lazy" alt="Patio largo entre dos alas del hospital, con jardineras, senderos de adoquín y un puente que las une"><figcaption>Patio entre las alas, cruzado por un puente</figcaption></figure>
+          <figure class="foto g-6"><img src="img/hospital/render-hall-1056.webp" width="1056" height="764" loading="lazy" alt="Hall en doble altura con el mostrador de admisión, jardineras y el pasadizo del segundo nivel"><figcaption>Hall principal en doble altura</figcaption></figure>
+          <figure class="foto g-6"><img src="img/hospital/render-ingreso-1056.webp" width="1056" height="764" loading="lazy" alt="Ingreso principal de vidrio bajo un volumen con parasoles verticales en voladizo"><figcaption>Ingreso principal bajo el voladizo</figcaption></figure>
+          <figure class="foto g-6"><img src="img/hospital/render-terraza-1056.webp" width="1056" height="764" loading="lazy" alt="Patio de descanso bajo una pérgola, con árboles en jardineras circulares y personas sentadas"><figcaption>Patio de descanso bajo la pérgola</figcaption></figure>
+          <figure class="foto g-6"><img src="img/hospital/render-aereo-1056.webp" width="1056" height="764" loading="lazy" alt="Vista aérea con los techos verdes, el estacionamiento de ambulancias y los jardines"><figcaption>Techos verdes y jardines, desde arriba</figcaption></figure>
+          <figure class="foto g-6"><img src="img/hospital/render-emergencias-1056.webp" width="1056" height="764" loading="lazy" alt="Ambulancias estacionadas frente al volumen de Emergencias, de un nivel y con techo verde"><figcaption>Ingreso de ambulancias a Emergencias</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- salida: otros proyectos, sin bucle -->
+    <nav class="fin" id="fin" aria-labelledby="t-fin">
+      <div class="contenedor hoja" data-brillo>
+        <div class="fin__cab">
+          <div>
+            <p class="etiqueta">Sigue viendo</p>
+            <h2 class="titulo" id="t-fin">Otros proyectos</h2>
+          </div>
+          <div class="fin__acciones">
+            <a class="boton boton--volver" href="./#proyectos"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M16 10H4m5-5-5 5 5 5"/></svg>Todos los proyectos</a>
+            <a class="boton boton--lleno" href="./#contacto">Contacto</a>
+          </div>
+        </div>
+        <ul class="fin__lista">
+          <li><a href="centro-cultural-canete.html" style="--c-acr: var(--canete-acrilico)"><img src="img/canete/portada-1200.webp" width="1200" height="675" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Siguiente · Tesis</span><strong>Centro cultural y recreativo en Cañete</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+          <li><a href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)"><img src="img/spare/portada-1280.webp" width="1280" height="720" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Obra construida · Huancayo</span><strong>Spare Parts</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+          <li><a href="vivienda-multifamiliar.html" style="--c-acr: var(--vivienda-acrilico)"><img src="img/vivienda/portada-1200.webp" width="1200" height="840" loading="lazy" alt=""><span class="fin__placa vidrio vidrio--oscuro"><span class="fin__etq">Taller 4 · Comas</span><strong>Vivienda multifamiliar</strong><span class="fin__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <span>© 2026 Jashira Illescas Rodriguez · Lima, Perú</span>
+      <span>Taller 7 · Universidad Privada del Norte</span>
+    </div>
+  </footer>
+  <script type="module" src="assets/js/main.js?v=12"></script>
+</body>
+</html>

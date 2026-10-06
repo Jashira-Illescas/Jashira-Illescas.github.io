@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght,FLAR,VOLM@300..700,40,0&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,100,0;1,9..144,300..600,100,1&display=swap">
-  <link rel="stylesheet" href="assets/css/styles.css?v=10">
+  <link rel="stylesheet" href="assets/css/styles.css?v=12">
   <script type="importmap">
     { "imports": {
         "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
@@ -68,6 +68,7 @@
       <li><a href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)"><img src="img/spare/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Spare Parts, Huancayo</strong><small>Obra construida · 2M MICON</small></span><i aria-hidden="true"></i></a></li>
       <li><a href="vivienda-multifamiliar.html" style="--c-acr: var(--vivienda-acrilico)"><img src="img/vivienda/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Vivienda multifamiliar</strong><small>Taller 4 · Comas</small></span><i aria-hidden="true"></i></a></li>
       <li><a href="centro-cultural-rimac.html" style="--c-acr: var(--rimac-acrilico)"><img src="img/rimac/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural</strong><small>Taller 5 · Rímac</small></span><i aria-hidden="true"></i></a></li>
+      <li><a href="hospital-los-olivos.html" style="--c-acr: var(--hospital-acrilico)"><img src="img/hospital/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Hospital tipo II</strong><small>Taller 7 · Los Olivos</small></span><i aria-hidden="true"></i></a></li>
       <li><a href="centro-cultural-canete.html" style="--c-acr: var(--canete-acrilico)"><img src="img/canete/mini-480.webp" alt="" width="56" height="42" loading="lazy"><span><strong>Centro cultural y recreativo</strong><small>Tesis · Cañete</small></span><i aria-hidden="true"></i></a></li>
     </ul>
     <div class="emergente__pie">
@@ -78,9 +79,9 @@
   </nav>
 
   <main id="contenido">
-    <!-- PORTADA: maqueta de estudio con los cuatro proyectos -->
+    <!-- PORTADA: maqueta de estudio con los cinco proyectos -->
     <section class="portada" aria-labelledby="nombre">
-      <div class="portada__lienzo" id="maqueta" data-proyectos="data/proyectos.json?v=10" aria-hidden="true"></div>
+      <div class="portada__lienzo" id="maqueta" data-proyectos="data/proyectos.json?v=12" aria-hidden="true"></div>
       <div class="portada__etiquetas" id="maqueta-etiquetas"></div>
       <p class="portada__pista vidrio" id="maqueta-pista"></p>
       <div class="portada__respaldo">
@@ -88,6 +89,7 @@
           <li><a href="spare-parts-huancayo.html"><img src="img/spare/mini-480.webp" width="480" height="360" alt="Interior de la tienda Spare Parts en Huancayo"><span>Spare Parts</span></a></li>
           <li><a href="vivienda-multifamiliar.html"><img src="img/vivienda/mini-480.webp" width="480" height="360" alt="Render de la vivienda multifamiliar en Comas"><span>Vivienda</span></a></li>
           <li><a href="centro-cultural-rimac.html"><img src="img/rimac/mini-480.webp" width="480" height="360" alt="Render del centro cultural en el Rímac"><span>Rímac</span></a></li>
+          <li><a href="hospital-los-olivos.html"><img src="img/hospital/mini-480.webp" width="480" height="360" alt="Vista aérea del hospital en Los Olivos"><span>Hospital</span></a></li>
           <li><a href="centro-cultural-canete.html"><img src="img/canete/mini-480.webp" width="480" height="360" alt="Render del centro cultural y recreativo en Cañete"><span>Cañete</span></a></li>
         </ul>
       </div>
@@ -107,7 +109,7 @@
         <header class="cabeza cabeza--dos revelar">
           <p class="etiqueta">Proyectos</p>
           <h2 class="titulo" id="t-proyectos">Lo que he hecho hasta ahora</h2>
-          <p class="entradilla">La tienda de Huancayo se construyó con 2M MICON entre 2024 y 2025. Los otros tres son de los talleres de la UPN; el último es mi tesis.</p>
+          <p class="entradilla">La tienda de Huancayo se construyó con 2M MICON entre 2024 y 2025. Los otros cuatro son de los talleres de la UPN; el último es mi tesis.</p>
         </header>
 
         <a class="destacada revelar" href="spare-parts-huancayo.html" style="--c-acr: var(--spare-acrilico)">
@@ -139,6 +141,15 @@
               <span class="placa-foto__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span>
             </div>
           </a>
+          <a class="tarjeta revelar" href="hospital-los-olivos.html" style="--c-acr: var(--hospital-acrilico)">
+            <img src="img/hospital/portada-1200.webp" width="1200" height="668" loading="lazy" alt="Vista aérea del hospital: volúmenes blancos con parasoles verticales, el ingreso de vidrio y jardines en forma de triángulo">
+            <div class="placa-foto vidrio vidrio--oscuro">
+              <span class="placa-foto__etq">Taller 7 · Los Olivos</span>
+              <h3 class="placa-foto__titulo">Hospital tipo II</h3>
+              <span class="placa-foto__desc"><span>Cuatro niveles alrededor de patios y jardines, en el cruce de dos avenidas. Proyecto en grupo.</span></span>
+              <span class="placa-foto__flecha" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span>
+            </div>
+          </a>
           <a class="tarjeta revelar" href="centro-cultural-canete.html" style="--c-acr: var(--canete-acrilico)">
             <img src="img/canete/portada-1200.webp" width="1200" height="675" loading="lazy" alt="Render al atardecer del centro cultural y recreativo en Cañete">
             <div class="placa-foto vidrio vidrio--oscuro">
@@ -156,7 +167,7 @@
             <p>Otros trabajos y actividades de la carrera.</p>
           </div>
           <ul class="logros__lista">
-            <li><strong>Hospital tipo II</strong><span>Participación en Expo-Proyectos UPN</span><time>2024</time></li>
+            <li><strong>Expo-Proyectos UPN</strong><span>El <a class="enlace" href="hospital-los-olivos.html">hospital tipo II</a>, con mi grupo del Taller 7</span><time>2024</time></li>
             <li><strong>Silla de salón</strong><span>Diseño y desarrollo de mobiliario</span><time>2024</time></li>
             <li><strong>Feria Mueble Mall de Comas</strong><span>Participación con la UPN</span><time>2024</time></li>
             <li><strong>Donativos navideños</strong><span>Voluntariado independiente</span><time>2021–2023</time></li>
@@ -250,6 +261,6 @@
     </div>
   </footer>
 
-  <script type="module" src="assets/js/main.js?v=10"></script>
+  <script type="module" src="assets/js/main.js?v=12"></script>
 </body>
 </html>

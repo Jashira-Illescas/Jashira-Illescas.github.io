@@ -1,5 +1,5 @@
 // Punto de entrada de todas las páginas. Lo pesado (Three.js) se carga solo cuando hace falta.
-import { $, $$, webglDisponible, reducirMovimiento } from "./util.js?v=10";
+import { $, $$, webglDisponible, reducirMovimiento } from "./util.js?v=12";
 
 // ---------------------------------------------------------------- paneles emergentes
 // Un botón con data-abre="id" abre el panel #id. El panel se cierra al tocar fuera, con Esc,
@@ -326,7 +326,7 @@ const maqueta = $("#maqueta");
 if (maqueta) {
   const portada = maqueta.closest(".portada");
   if (webglDisponible() && !ahorro) {
-    import("./maqueta.js?v=10")
+    import("./maqueta.js?v=12")
       .then((m) => m.iniciar(maqueta, $("#maqueta-etiquetas"), $("#maqueta-pista")))
       .then(() => portada.classList.add("con-3d"))
       .catch((err) => { console.warn("Maqueta 3D no disponible:", err); portada.classList.add("sin-3d"); });
@@ -337,11 +337,11 @@ const visor = $("#visor3d");
 if (visor) {
   const aviso = $(".visor__cargando", visor);
   if (!webglDisponible()) aviso.textContent = "Tu navegador no permite ver modelos 3D (WebGL). Revisa los planos y renders.";
-  else alAcercarse(visor, () => import("./visor3d.js?v=10").then((m) => m.iniciar(visor)).catch((err) => {
+  else alAcercarse(visor, () => import("./visor3d.js?v=12").then((m) => m.iniciar(visor)).catch((err) => {
     console.warn(err);
     aviso.textContent = "No se pudo cargar el modelo 3D en este navegador.";
   }));
 }
 
 const gestion = $("#gestion-app");
-if (gestion) alAcercarse(gestion, () => import("./gestion.js?v=10").then((m) => m.iniciar(gestion)).catch((err) => console.warn(err)));
+if (gestion) alAcercarse(gestion, () => import("./gestion.js?v=12").then((m) => m.iniciar(gestion)).catch((err) => console.warn(err)));

@@ -1,6 +1,6 @@
 // Gestión de la obra: indicadores, cronograma (Gantt), curva S y presupuesto con estructura S10.
 // Reglas: marcas finas, un solo color por serie (el del proyecto), ejes discretos, tooltip + tabla equivalente.
-import { $, json, soles, soles0, solesCompacto, numero, fecha, aFecha, mesCorto, DIA, tooltip, emitir, escuchar } from "./util.js?v=10";
+import { $, json, soles, soles0, solesCompacto, numero, fecha, aFecha, mesCorto, DIA, tooltip, emitir, escuchar } from "./util.js?v=12";
 
 const SVG = "http://www.w3.org/2000/svg";
 const el = (tag, attrs = {}, padre) => {

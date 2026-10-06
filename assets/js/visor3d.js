@@ -6,7 +6,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
-import { $, $$, json, fecha, numero, emitir, escuchar, aFecha, DIA, reducirMovimiento } from "./util.js?v=10";
+import { $, $$, json, fecha, numero, emitir, escuchar, aFecha, DIA, reducirMovimiento } from "./util.js?v=12";
 
 const CORTE = 1.2;                         // altura del plano de corte en la vista en planta
 const OBRA = 0xf0a23a;                     // resaltado de lo que se está construyendo esa semana

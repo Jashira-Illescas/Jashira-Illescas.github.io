@@ -26,6 +26,7 @@
   --vivienda: #964b2c; --vivienda-claro: #fbe3d8; --vivienda-acrilico: #e38a67;
   --rimac: #4e5ea2;    --rimac-claro: #e1e7fb;    --rimac-acrilico: #8a9ff0;
   --canete: #5e6b10;   --canete-claro: #e6ecd4;   --canete-acrilico: #9eaf52;
+  --hospital: #8b4a77; --hospital-claro: #f7e1ef; --hospital-acrilico: #d786bc;   /* malva: el hueco de tono entre el azul del Rímac y la terracota de la vivienda */
 
   --acento: var(--vino);
   --acento-claro: var(--rosa);
@@ -65,11 +66,13 @@
 [data-proyecto="vivienda"] { --acento: var(--vivienda); --acento-claro: var(--vivienda-claro); --acento-acrilico: var(--vivienda-acrilico); }
 [data-proyecto="rimac"]    { --acento: var(--rimac);    --acento-claro: var(--rimac-claro);    --acento-acrilico: var(--rimac-acrilico); }
 [data-proyecto="canete"]   { --acento: var(--canete);   --acento-claro: var(--canete-claro);   --acento-acrilico: var(--canete-acrilico); }
+[data-proyecto="hospital"] { --acento: var(--hospital); --acento-claro: var(--hospital-claro); --acento-acrilico: var(--hospital-acrilico); }
 [data-proyecto] { --luz-1: var(--acento-claro); --luz-2: var(--rosa); }
 [data-proyecto="spare"]    { --luz-3: rgba(40, 189, 173, .46); }
 [data-proyecto="vivienda"] { --luz-3: rgba(227, 138, 103, .5); }
 [data-proyecto="rimac"]    { --luz-3: rgba(138, 159, 240, .5); }
 [data-proyecto="canete"]   { --luz-3: rgba(158, 175, 82, .5); }
+[data-proyecto="hospital"] { --luz-3: rgba(215, 134, 188, .46); }
 
 /* ------------------------------------------------------------------ base */
 *, *::before, *::after { box-sizing: border-box; }
@@ -448,8 +451,8 @@ em { font-style: italic; }
     display: block; min-height: 0; padding-top: 56px;
     background: radial-gradient(70% 34% at 50% 26%, rgba(255, 255, 255, .6) 0%, rgba(255, 255, 255, 0) 72%);
   }
-  .portada__lienzo {
-    position: relative; inset: auto; height: clamp(300px, 56svh, 520px);
+  .portada__lienzo {             /* en un celular parado la maqueta la limita el ancho: el lienzo no necesita ser más alto */
+    position: relative; inset: auto; height: clamp(300px, min(56svh, 92vw), 520px);
     -webkit-mask: linear-gradient(180deg, transparent, #000 6%, #000 90%, transparent);
     mask: linear-gradient(180deg, transparent, #000 6%, #000 90%, transparent);
   }
@@ -468,13 +471,13 @@ em { font-style: italic; }
 }
 .js .portada__respaldo { display: none; }
 .js .sin-3d .portada__respaldo { display: block; }
-.portada__respaldo ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 14px; }
+.portada__respaldo ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 14px; }
 .portada__respaldo a { display: block; text-decoration: none; color: var(--tinta); }
 .portada__respaldo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; }
 .portada__respaldo span { display: block; margin-top: .35rem; font-size: .82rem; font-weight: 500; }
 @media (max-width: 900px), (max-aspect-ratio: 1/1) {
   .portada__respaldo { top: 72px; left: var(--gutter); max-width: none; transform: none; }
-  .portada__respaldo ul { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .portada__respaldo ul { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
   .portada__respaldo img { border-radius: 10px; }
   .portada__respaldo span { font-size: .72rem; }
 }
@@ -539,7 +542,7 @@ em { font-style: italic; }
   padding: var(--pluma); border-radius: var(--radio); color: #fff; text-decoration: none;
 }
 .destacada { min-height: clamp(460px, 46vw, 640px); }
-.tarjeta { width: 100%; aspect-ratio: 4 / 3.4; min-height: 300px; }   /* width 100%: ocupa su columna aunque el alto mínimo pida más ancho */
+.tarjeta { width: 100%; aspect-ratio: 16 / 11; min-height: 280px; }   /* width 100%: ocupa su columna aunque el alto mínimo pida más ancho */
 .destacada > img, .tarjeta > img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; background: #1b1b1e; transition: transform 1.4s var(--ease); }
 .destacada:hover > img, .tarjeta:hover > img { transform: scale(1.03); }
 .destacada::after, .tarjeta::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(0deg, rgba(0, 0, 0, .28), rgba(0, 0, 0, 0) 40%); }
@@ -574,14 +577,12 @@ em { font-style: italic; }
 }
 @media (max-width: 760px) { .destacada { min-height: 440px; } .tarjeta { aspect-ratio: 4 / 3.3; min-height: 260px; } }
 
-.rejilla-proyectos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 24px); margin-top: clamp(14px, 2vw, 24px); }
+/* cuatro proyectos de la universidad: dos por fila, así cada render se ve grande */
+.rejilla-proyectos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 24px); margin-top: clamp(14px, 2vw, 24px); }
+.rejilla-proyectos .tarjeta:last-child:nth-child(odd) { grid-column: 1 / -1; aspect-ratio: 16 / 7.5; }   /* si alguna queda sola, va a lo ancho */
 .tarjeta .placa-foto { padding: 10px 10px 10px 15px; border-radius: 17px; }
-.tarjeta .placa-foto__titulo { font-size: clamp(1.1rem, 1.45vw, 1.34rem); }
+.tarjeta .placa-foto__titulo { font-size: clamp(1.1rem, 1.6vw, 1.4rem); }
 .tarjeta .placa-foto__flecha { width: 36px; height: 36px; }
-@media (max-width: 960px) {
-  .rejilla-proyectos { grid-template-columns: 1fr 1fr; }
-  .rejilla-proyectos .tarjeta:last-child:nth-child(odd) { grid-column: 1 / -1; aspect-ratio: 16 / 7.5; }   /* la que queda sola va a lo ancho */
-}
 @media (max-width: 620px) {
   .rejilla-proyectos { grid-template-columns: 1fr; }
   .rejilla-proyectos .tarjeta, .rejilla-proyectos .tarjeta:last-child:nth-child(odd) { aspect-ratio: 4 / 3.3; min-height: 0; }   /* sin alto mínimo: con la proporción ensanchaba la tarjeta */
@@ -962,7 +963,7 @@ html:not(.js) .proceso__escena img { position: static; width: 100%; height: auto
 
 /* íconos de normas */
 .normas { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
-@media (max-width: 760px) { .normas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .normas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }   /* a cinco columnas, «centralidades» no entraba en su tarjeta */
 .norma { display: grid; gap: .6rem; justify-items: start; padding: 16px 16px 18px; border-radius: 20px; background: var(--capa); border: 1px solid var(--capa-borde); }
 .norma svg { width: 34px; height: 34px; color: var(--acento); }
 .norma strong { font: 400 1.1rem/1.2 var(--f-display); }

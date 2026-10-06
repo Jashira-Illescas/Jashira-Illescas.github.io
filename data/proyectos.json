@@ -1,43 +1,71 @@
 {
-  "nota": "Proyectos de la maqueta de portada, todos a la MISMA escala (0.55 unidades por metro), como una maqueta real de estudio: Spare Parts es el más pequeño y Cañete el más grande. 'color' es el tono para textos y 'acrilico' la placa de color. Para agregar un proyecto: describe su volumetría con primitivas (cajas, bóvedas, anfiteatros) en metros, define su posición en el tablero (x, z) y su giro, y usa la misma escala. El tablero mide 170 × 116 (x de -85 a 85, z de -58 a 58): cada placa y la colina deben quedar a 5 o más del borde y a 8 o más entre sí.",
-  "tablero": { "colina": { "x": -64, "z": -35, "r": 15 } },
+  "nota": "Proyectos de la maqueta de portada, todos a la MISMA escala (0.55 unidades por metro), como una maqueta real de estudio: Spare Parts es el más pequeño y el hospital y Cañete, los más grandes. 'color' es el tono para textos y 'acrilico' la placa de color. Para agregar un proyecto: describe su volumetría con primitivas (cajas, bóvedas, anfiteatros; material 'vidrio' o 'verde' para techos verdes) en metros, define su posición en el tablero (x, z) y su giro, y usa la misma escala. El tablero mide 170 × 116 (x de -85 a 85, z de -58 a 58; z positivo es el frente, hacia la cámara): cada placa debe quedar a 5 o más del borde y a 8 o más de las otras y de la colina. Los volúmenes del hospital salen de sus plantas (ejes 1–18 y A–N) y su ampliación futura (material 'ampliacion', translúcida) de las franjas «Propuesta expansión» del plan maestro; el centro va en el medio de la caja que los contiene. Se generan con _herramientas/maqueta_tablero.py.",
+  "tablero": {"colina": {"x": -65, "z": -38, "r": 12}},
   "proyectos": [
     {
       "id": "spare", "nombre": "Spare Parts · Huancayo", "corto": "Spare Parts", "movil": "Spare Parts", "lugar": "Huancayo",
       "url": "spare-parts-huancayo.html", "color": "#00776a", "acrilico": "#28bdad",
-      "maqueta": { "x": 26, "z": 41, "escala": 0.55, "giro": 1.2, "margen": 2.2, "fuente": "tienda", "datos": "data/tienda.json" }
+      "maqueta": {"x": 71.2, "z": 25, "escala": 0.55, "giro": 1.2, "margen": 2.2, "fuente": "tienda", "datos": "data/tienda.json"}
     },
     {
       "id": "vivienda", "nombre": "Vivienda multifamiliar", "corto": "Vivienda", "movil": "Vivienda", "lugar": "Comas",
       "url": "vivienda-multifamiliar.html", "color": "#964b2c", "acrilico": "#e38a67",
-      "maqueta": { "x": 20, "z": -42, "escala": 0.55, "giro": 0.4, "margen": 2.5, "fuente": "vivienda", "datos": "data/vivienda.json" }
+      "maqueta": {"x": -34, "z": -33, "escala": 0.55, "giro": 0.4, "margen": 2.5, "fuente": "vivienda", "datos": "data/vivienda.json"}
     },
     {
       "id": "rimac", "nombre": "Centro cultural", "corto": "Centro cultural", "movil": "Rímac", "lugar": "Rímac",
       "url": "centro-cultural-rimac.html", "color": "#4e5ea2", "acrilico": "#8a9ff0",
-      "maqueta": { "x": -18, "z": -38, "escala": 0.55, "giro": 0.2,
+      "maqueta": {"x": 36.5, "z": 30, "escala": 0.55, "giro": 0,
         "volumenes": [
-          { "tipo": "caja", "x": 0, "z": 2, "w": 58, "d": 30, "h": 4.6 },
-          { "tipo": "caja", "x": -18, "z": 11, "w": 20, "d": 11, "h": 8.4, "y": 4.6 },
-          { "tipo": "caja", "x": 18, "z": 11, "w": 22, "d": 11, "h": 8.4, "y": 4.6 },
-          { "tipo": "caja", "x": 0, "z": 11, "w": 11, "d": 11, "h": 8.4, "y": 4.6, "material": "vidrio" },
-          { "tipo": "caja", "x": -22, "z": -4, "w": 12, "d": 20, "h": 8.4, "y": 4.6 },
-          { "tipo": "caja", "x": 8, "z": -9, "w": 28, "d": 16, "h": 5.5, "y": 4.6 },
-          { "tipo": "boveda", "x": 8, "z": -9, "w": 28, "d": 16, "h": 5.5, "y": 10.1 }
+          {"tipo": "caja", "x": 0, "z": 2, "w": 58, "d": 30, "h": 4.6},
+          {"tipo": "caja", "x": -18, "z": 11, "w": 20, "d": 11, "h": 8.4, "y": 4.6},
+          {"tipo": "caja", "x": 18, "z": 11, "w": 22, "d": 11, "h": 8.4, "y": 4.6},
+          {"tipo": "caja", "x": 0, "z": 11, "w": 11, "d": 11, "h": 8.4, "y": 4.6, "material": "vidrio"},
+          {"tipo": "caja", "x": -22, "z": -4, "w": 12, "d": 20, "h": 8.4, "y": 4.6},
+          {"tipo": "caja", "x": 8, "z": -9, "w": 28, "d": 16, "h": 5.5, "y": 4.6},
+          {"tipo": "boveda", "x": 8, "z": -9, "w": 28, "d": 16, "h": 5.5, "y": 10.1}
+        ] }
+    },
+    {
+      "id": "hospital", "nombre": "Hospital tipo II", "corto": "Hospital", "movil": "Hospital", "lugar": "Los Olivos",
+      "url": "hospital-los-olivos.html", "color": "#8b4a77", "acrilico": "#d786bc",
+      "maqueta": {"x": 30, "z": -28.5, "escala": 0.55, "giro": 0, "margen": 3,
+        "volumenes": [
+          {"tipo": "caja", "x": -24.3, "z": -33.4, "w": 104.6, "d": 14.3, "h": 8},
+          {"tipo": "caja", "x": -2.85, "z": -23.5, "w": 61.7, "d": 5.5, "h": 8},
+          {"tipo": "caja", "x": -24.3, "z": 3.25, "w": 104.6, "d": 16.0, "h": 8},
+          {"tipo": "caja", "x": -69.65, "z": -15.5, "w": 13.9, "d": 21.5, "h": 8},
+          {"tipo": "caja", "x": -29.8, "z": -12.75, "w": 7.8, "d": 16.0, "h": 8},
+          {"tipo": "caja", "x": 21.9, "z": -12.75, "w": 12.2, "d": 16.0, "h": 8},
+          {"tipo": "caja", "x": -4.75, "z": 33.15, "w": 41.7, "d": 15.0, "h": 8},
+          {"tipo": "caja", "x": -32.75, "z": 23.35, "w": 14.3, "d": 24.2, "h": 8, "material": "vidrio"},
+          {"tipo": "caja", "x": -80.05, "z": -21.65, "w": 6.9, "d": 37.8, "h": 4},
+          {"tipo": "caja", "x": 9.55, "z": 18.45, "w": 13.5, "d": 14.4, "h": 4},
+          {"tipo": "caja", "x": -80.05, "z": -21.65, "w": 6.9, "d": 37.8, "h": 0.35, "y": 4, "material": "verde"},
+          {"tipo": "caja", "x": 9.55, "z": 18.45, "w": 13.5, "d": 14.4, "h": 0.35, "y": 4, "material": "verde"},
+          {"tipo": "caja", "x": -55.15, "z": -33.4, "w": 42.9, "d": 14.3, "h": 0.35, "y": 8, "material": "verde"},
+          {"tipo": "caja", "x": -69.65, "z": -15.5, "w": 13.9, "d": 21.5, "h": 0.35, "y": 8, "material": "verde"},
+          {"tipo": "caja", "x": -24.3, "z": 3.25, "w": 104.6, "d": 16.0, "h": 4, "y": 8},
+          {"tipo": "caja", "x": -8.0, "z": -28.35, "w": 49.8, "d": 13.4, "h": 4, "y": 8},
+          {"tipo": "caja", "x": -29.0, "z": -13.2, "w": 7.8, "d": 16.9, "h": 4, "y": 8},
+          {"tipo": "caja", "x": -36.5, "z": 17.5, "w": 17.0, "d": 46.3, "h": 8, "y": 8},
+          {"tipo": "caja", "x": 44.73, "z": -34.9, "w": 33.15, "d": 11.5, "h": 8, "material": "ampliacion"},
+          {"tipo": "caja", "x": 55.82, "z": 2.75, "w": 55.35, "d": 11.8, "h": 8, "material": "ampliacion"},
+          {"tipo": "caja", "x": 62.85, "z": 34.85, "w": 41.3, "d": 11.6, "h": 8, "material": "ampliacion"}
         ] }
     },
     {
       "id": "canete", "nombre": "Centro cultural y recreativo", "corto": "Centro recreativo", "movil": "Cañete", "lugar": "Cañete",
       "url": "centro-cultural-canete.html", "color": "#5e6b10", "acrilico": "#9eaf52",
-      "maqueta": { "x": 8, "z": 1, "escala": 0.55, "giro": 0.2, "margen": 6,
+      "maqueta": {"x": -36.8, "z": 30, "escala": 0.55, "giro": 0.05, "margen": 6,
         "volumenes": [
-          { "tipo": "caja", "x": 18, "z": -24, "w": 120, "d": 14, "h": 8 },
-          { "tipo": "caja", "x": -52, "z": -6, "w": 34, "d": 16, "h": 9, "giro": 0.35 },
-          { "tipo": "caja", "x": -18, "z": 4, "w": 30, "d": 14, "h": 8, "giro": -0.28 },
-          { "tipo": "caja", "x": -32, "z": 10, "w": 12, "d": 12, "h": 15, "giro": 0.2 },
-          { "tipo": "caja", "x": 30, "z": 2, "w": 26, "d": 16, "h": 10 },
-          { "tipo": "caja", "x": 62, "z": -8, "w": 20, "d": 14, "h": 8 },
-          { "tipo": "anfiteatro", "x": 6, "z": 14, "r": 14, "gradas": 4 }
+          {"tipo": "caja", "x": 18, "z": -24, "w": 120, "d": 14, "h": 8},
+          {"tipo": "caja", "x": -52, "z": -6, "w": 34, "d": 16, "h": 9, "giro": 0.35},
+          {"tipo": "caja", "x": -18, "z": 4, "w": 30, "d": 14, "h": 8, "giro": -0.28},
+          {"tipo": "caja", "x": -32, "z": 10, "w": 12, "d": 12, "h": 15, "giro": 0.2},
+          {"tipo": "caja", "x": 30, "z": 2, "w": 26, "d": 16, "h": 10},
+          {"tipo": "caja", "x": 62, "z": -8, "w": 20, "d": 14, "h": 8},
+          {"tipo": "anfiteatro", "x": 6, "z": 14, "r": 14, "gradas": 4}
         ] }
     }
   ]

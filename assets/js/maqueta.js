@@ -2,14 +2,15 @@
 // árboles de espuma y, bajo cada proyecto, una placa de acrílico de su color. Se dibuja solo cuando algo cambia.
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { json, reducirMovimiento } from "./util.js?v=10";
+import { json, reducirMovimiento } from "./util.js?v=12";
 
 const C = {
   corcho: 0xdcc6a4, cantoTablero: 0xb99c77, arcilla: 0xf7f6f3, arcillaHover: 0xffffff, linea: 0x3a3a40,
   carton: [0xd9d1c4, 0xcac1b2], curva: 0x8a7154, vidrio: 0xcfe3e8,
-  copa: [0xa6bb8e, 0x93ad7d, 0xbccaa2], tronco: 0x9a7b5c,
+  copa: [0xa6bb8e, 0x93ad7d, 0xbccaa2], tronco: 0x9a7b5c, techo: 0xb5c49c,   // techo: los techos verdes (esponja)
 };
 const TAB = { w: 170, d: 116 };   // tablero de la maqueta (unidades de maqueta)
+const AMPLIACION = 0.3;            // opacidad de las ampliaciones futuras (material «ampliacion» en proyectos.json)
 
 export async function iniciar(cont, capa, pista) {
   const cfg = await json(cont.dataset.proyectos);
@@ -74,9 +75,17 @@ export async function iniciar(cont, capa, pista) {
     grupo.position.set(m.x, 0, m.z);
     grupo.rotation.y = m.giro || 0;
     grupo.scale.setScalar(m.escala || 1);
-    grupo.traverse((o) => { if (o.isMesh) { o.castShadow = !o.userData.placa; o.receiveShadow = true; o.userData.id = p.id; } });
+    grupo.traverse((o) => {
+      if (!o.isMesh) return;
+      o.castShadow = !o.userData.placa && !o.userData.ampliacion;   // la ampliación es una proyección: no da sombra
+      o.receiveShadow = !o.userData.ampliacion;
+      o.userData.id = p.id;
+    });
     escena.add(grupo);
-    const caja = new THREE.Box3().setFromObject(grupo);
+    // la etiqueta va sobre lo construido: no cuentan la placa ni la ampliación futura
+    grupo.updateMatrixWorld(true);
+    const caja = new THREE.Box3();
+    for (const h of grupo.children) if (!h.userData.placa && !h.userData.ampliacion) caja.expandByObject(h);
     const ancla = new THREE.Vector3((caja.min.x + caja.max.x) / 2, caja.max.y + 1.5, (caja.min.z + caja.max.z) / 2);
     const etiqueta = crearEtiqueta(p);
     capa.appendChild(etiqueta);
@@ -131,10 +140,10 @@ export async function iniciar(cont, capa, pista) {
   const pedir = () => { if (!pedido) { pedido = true; requestAnimationFrame(dibujar); } };
   controles.addEventListener("change", pedir);
 
-  // encuadre en escritorio: la esquina izquierda y el fondo del tablero quedan a la vista, con aire arriba (la isla
-  // y las etiquetas) y a la izquierda (el borde difuminado del lienzo); todos los proyectos quedan dentro, lejos de
-  // la pista, y el tablero puede seguir más allá del borde derecho de la pantalla, como una mesa grande.
-  // Se busca la distancia y se corre la vista para centrar ese conjunto. En el celular se usa la distancia de siempre.
+  // encuadre: se busca la distancia y se corre la vista para que todos los proyectos (con sus etiquetas) queden dentro.
+  // En escritorio, además, la esquina izquierda y el fondo del tablero quedan a la vista, con aire arriba (la isla y
+  // las etiquetas), abajo (la pista) y a la izquierda (el borde difuminado del lienzo); el tablero puede seguir más allá
+  // del borde derecho de la pantalla, como una mesa grande. En el celular solo cuentan los proyectos, con poco margen.
   const dirInicial = new THREE.Vector3().setFromSpherical(new THREE.Spherical(1, 1.0, 0.52));
   const esquinas = [];
   for (const x of [-TAB.w / 2, TAB.w / 2]) for (const z of [-TAB.d / 2, TAB.d / 2]) for (const y of [0, -2.4]) esquinas.push(new THREE.Vector3(x, y, z));
@@ -145,8 +154,10 @@ export async function iniciar(cont, capa, pista) {
   }
   let distancia = 0, corrida = [0, 0];
   function encuadrar(w, h) {
-    const lim = { izq: -1 + 2 * Math.max(60, w * 0.1) / w, der: 1 - 2 * Math.max(24, w * 0.05) / w, arriba: 1 - 2 * 96 / h, abajo: -1 + 2 * 100 / h };
-    const etq = 2 * 64 / h;          // una etiqueta con su palito, sobre su volumen (en coordenadas de pantalla)
+    const lim = movil
+      ? { izq: -1 + 2 * 12 / w, der: 1 - 2 * 12 / w, arriba: 1 - 2 * 10 / h, abajo: -1 + 2 * 14 / h }
+      : { izq: -1 + 2 * Math.max(60, w * 0.1) / w, der: 1 - 2 * Math.max(24, w * 0.05) / w, arriba: 1 - 2 * 96 / h, abajo: -1 + 2 * 100 / h };
+    const etq = 2 * (movil ? 50 : 64) / h;   // una etiqueta con su palito, sobre su volumen (en coordenadas de pantalla)
     const cam = new THREE.PerspectiveCamera(camara.fov, w / h, 1, 1200);
     let dist = 300, caja;
     for (let i = 0; i < 6; i++) {
@@ -154,7 +165,7 @@ export async function iniciar(cont, capa, pista) {
       cam.lookAt(objetivo);
       cam.updateMatrixWorld();
       caja = [Infinity, -Infinity, Infinity, -Infinity];
-      for (const p of esquinas) {        // del tablero cuentan su esquina izquierda y su fondo
+      if (!movil) for (const p of esquinas) {   // del tablero cuentan su esquina izquierda y su fondo
         v.copy(p).project(cam);
         caja[0] = Math.min(caja[0], v.x); caja[3] = Math.max(caja[3], v.y);
       }
@@ -176,13 +187,10 @@ export async function iniciar(cont, capa, pista) {
     if (!w || !h) return;
     renderer.setSize(w, h, false);
     camara.aspect = w / h;
-    if (movil) camara.clearViewOffset();
-    else {
-      encuadrar(w, h);
-      camara.setViewOffset(w, h, corrida[0], corrida[1], w, h);
-      // si cambia el tamaño de la ventana, la cámara se acerca o se aleja sin perder el giro que le dio la persona
-      if (listo) camara.position.sub(objetivo).setLength(distancia).add(objetivo);
-    }
+    encuadrar(w, h);
+    camara.setViewOffset(w, h, corrida[0], corrida[1], w, h);
+    // si cambia el tamaño de la ventana, la cámara se acerca o se aleja sin perder el giro que le dio la persona
+    if (listo) camara.position.sub(objetivo).setLength(distancia).add(objetivo);
     camara.updateProjectionMatrix();
     for (const pz of piezas) pz.ancho = pz.alto = 0;
     pedir();
@@ -191,9 +199,7 @@ export async function iniciar(cont, capa, pista) {
 
   const esf = new THREE.Spherical();
   function posicionFinal() {
-    const asp = Math.max(0.55, cont.clientWidth / Math.max(1, cont.clientHeight));
-    const dist = movil ? 0.96 * (asp >= 1 ? 300 / Math.min(1.25, asp * 0.95) : Math.min(470, (300 / Math.max(0.55, asp)) * 1.05)) : distancia;
-    esf.set(dist, 1.0, 0.52);
+    esf.set(distancia, 1.0, 0.52);
     return new THREE.Vector3().setFromSpherical(esf).add(objetivo);
   }
   ajustar();
@@ -226,7 +232,10 @@ export async function iniciar(cont, capa, pista) {
       const on = pz.id === id;
       pz.etiqueta.classList.toggle("activa", on);
       for (const m of pz.mats) m.color.setHex(on ? C.arcillaHover : C.arcilla);
-      pz.grupo.traverse((o) => { if (o.userData.placa) o.material.opacity = on ? 0.9 : 0.62; });
+      pz.grupo.traverse((o) => {
+        if (o.userData.placa) o.material.opacity = on ? 0.9 : 0.62;
+        else if (o.userData.ampliacion) o.material.opacity = on ? AMPLIACION + 0.14 : AMPLIACION;
+      });
     }
     renderer.domElement.style.cursor = id ? "pointer" : "grab";
     pedir();
@@ -303,8 +312,6 @@ function arboles(escena, cerro, zonas, conSombra) {
   const hechos = [];
   const libre = (x, z, r) => {
     if (Math.abs(x) > TAB.w / 2 - 5 - r || Math.abs(z) > TAB.d / 2 - 5 - r) return false;
-    if (x < -22 && z > -28) return false;              // el frente izquierdo queda detrás del nombre: sin árboles
-    if (x < 5 && z > 14) return false;
     if (Math.hypot(x - cerro.x, z - cerro.z) < cerro.r * 1.22 + r + 1.5) return false;
     for (const b of zonas) if (x > b.min.x - r - 2.5 && x < b.max.x + r + 2.5 && z > b.min.z - r - 2.5 && z < b.max.z + r + 2.5) return false;
     for (const h of hechos) if (Math.hypot(x - h.x, z - h.z) < h.r + r + 0.5) return false;
@@ -362,8 +369,28 @@ function placaAcrilico(grupo, color, margen) {
   for (const h of grupo.children) if (h !== placa) h.position.y += 0.9;
 }
 
+// ampliación futura (la «propuesta de expansión» de un proyecto): acrílico translúcido con las aristas punteadas, como
+// el volumen proyectado de los diagramas. Se dibuja después de la placa (renderOrder), si no la placa la taparía
+function ampliacion(v) {
+  const g = new THREE.BoxGeometry(v.w, v.h, v.d);
+  const malla = new THREE.Mesh(g, new THREE.MeshStandardMaterial({
+    color: C.arcilla, roughness: 0.35, transparent: true, opacity: AMPLIACION, depthWrite: false,
+  }));
+  malla.position.set(v.x, (v.y || 0) + v.h / 2, v.z);
+  malla.rotation.y = v.giro || 0;
+  malla.renderOrder = 2;
+  malla.userData.ampliacion = true;
+  const aristas = new THREE.LineSegments(new THREE.EdgesGeometry(g),
+    new THREE.LineDashedMaterial({ color: C.linea, dashSize: 1.6, gapSize: 1.1, transparent: true, opacity: 0.6 }));
+  aristas.computeLineDistances();
+  aristas.renderOrder = 3;
+  malla.add(aristas);
+  return malla;
+}
+
 function primitiva(v, mats) {
-  const color = { vidrio: C.vidrio }[v.material] || C.arcilla;
+  if (v.material === "ampliacion") return ampliacion(v);
+  const color = { vidrio: C.vidrio, verde: C.techo }[v.material] || C.arcilla;
   const mat = materialArcilla(mats, color);
   if (v.material === "vidrio") Object.assign(mat, { transparent: true, opacity: 0.55, roughness: 0.2 });
   let malla;
